@@ -756,8 +756,8 @@ Singly_linkedList<T>::InsertAtPosition(
 //
 //
 // Function Name   :   DeleteFromGenListFirst
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :   NONE
 // Description     :
 //                     this function removes first node from singly linear linked list
@@ -794,8 +794,8 @@ Singly_linkedList<T>::DeleteFromGenListFirst()
 //
 //
 // Function Name   :   DeleteFromGenListLast
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :   NONE
 //
 // Description     :
@@ -838,8 +838,8 @@ BOOL Singly_linkedList<T>::DeleteFromGenListLast()
 //
 //
 // Function Name   :   DeleteAtPosition
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :   NONE
 //                     [IN] int pos.
 //                     Holds the position.
@@ -895,8 +895,8 @@ Singly_linkedList<T>::DeleteAtPosition(
 //
 //
 // Function Name   :   ReverseList
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :
 //                    NONE
 // Description     :
@@ -942,8 +942,8 @@ BOOL Singly_linkedList<T>::ReverseList()
 //
 //
 // Function Name    :   Doubly_linkedList
-// Function Date    :   20 Aug 2020
-// Function Author  :   Prasad Dangare
+// Function Date    :   18/07/2024
+// Function Author  :   Pratik Jagtap
 // Parameters       :   NONE
 // Description      :   
 //                      This Is Constructor Of Class Doubly_linkedList.
@@ -963,8 +963,8 @@ Doubly_linkedList<T>::Doubly_linkedList()
 //
 //
 // Function Name    :   ~Doubly_linkedList
-// Function Date    :   20 Aug 2020
-// Function Author  :   Prasad Dangare
+// Function Date    :   18/07/2024
+// Function Author  :   Pratik Jagtap
 // Parameters       :   NONE
 // Description      :   
 //                      This Is Distructor Of Class Doubly_linkedList.
@@ -995,8 +995,8 @@ Doubly_linkedList<T>::~Doubly_linkedList ()
 //
 //
 // Function Name   :  AddToGenListFirst
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :  
 // 
 //                     [IN]T *pNodeData.
@@ -1067,8 +1067,8 @@ pNewNode-> pPrev = NULL;
 //
 //
 // Function Name   :  AddToGenListLast
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :
 //
 //                   [IN] GEN_DLIST<T> **ppListToBeAppended.
@@ -1143,8 +1143,8 @@ pNewNode-> pPrev = NULL;
 //
 //
 // Function Name   :  FreeGenList
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :  NONE
 // Description     :  This function frees Doubly linear linked list
 //                   
@@ -1186,8 +1186,8 @@ Doubly_linkedList<T>::FreeGenList()
 //
 //
 // Function Name   :   DisplayGenList
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :
 //                     [IN] GEN_LIST<T> *pListHead
 //                     holds head pointer of the list.
@@ -1218,8 +1218,8 @@ Doubly_linkedList<T>::DisplayGenList()
 //
 //
 // Function Name   :  CountGenListNode
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :
 //                    [IN] GEN_DLIST<T> *pListHead.
 //                    Holds head pointer of list
@@ -1254,8 +1254,8 @@ int Doubly_linkedList<T>::CountGenListNode()
 //
 //
 // Function Name   :   SearchFirstOccurance
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :
 //
 //                     [IN] GEN_DLIST<T> data.
@@ -1300,8 +1300,8 @@ int Doubly_linkedList<T>::SearchFirstOccurance(
 //
 //
 // Function Name   :  SearchAllOccurance
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :
 //
 //                    [IN] GEN_DLIST<T> data.
@@ -1345,8 +1345,8 @@ int Doubly_linkedList<T>::SearchAllOccurance(
 //
 //
 // Function Name   :   InsertAtPosition
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :
 //
 //                     [IN] int pos.
@@ -1431,8 +1431,8 @@ BOOL Doubly_linkedList<T>::InsertAtPosition(
 //
 //
 // Function Name   :   DeleteFromGenListFirst
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 //
 // Parameters      :   NONE
 // Description     :
@@ -1471,8 +1471,8 @@ BOOL Doubly_linkedList<T>::DeleteFromGenListFirst()
 //
 //
 // Function Name   :   DeleteFromGenListLast
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :   NONE
 //
 // Description     :
@@ -1515,8 +1515,8 @@ BOOL Doubly_linkedList<T>::DeleteFromGenListLast()
 //
 //
 // Function Name   :   DeleteAtPosition
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 //
 // Parameters      :
 //                     [IN] int pos.
@@ -1573,8 +1573,8 @@ Doubly_linkedList<T>::DeleteAtPosition(
 //
 //
 // Function Name   :   DisplayGenListReverse
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :
 //                    NONE
 // Description     :
@@ -1611,8 +1611,8 @@ Doubly_linkedList<T>::DisplayGenListReverse()
 //
 //
 // Function Name    :   Singly_linkedList_Circular
-// Function Date    :   20 Aug 2020
-// Function Author  :   Prasad Dangare
+// Function Date    :   18/07/2024
+// Function Author  :   Pratik Jagtap
 // Parameters       :   NONE
 // Description      :   
 //                      This Is Constructor Of Class Singly_linkedList_Circular.
@@ -1632,8 +1632,8 @@ Singly_linkedList_Circular<T>::Singly_linkedList_Circular ()
 //
 //
 // Function Name    :   ~Singly_linkedList_Circular
-// Function Date    :   20 Aug 2020
-// Function Author  :   Prasad Dangare
+// Function Date    :   18/07/2024
+// Function Author  :   Pratik Jagtap
 // Parameters       :   NONE
 // Description      :   
 //                      This Is Distructor Of Class Singly_linkedList_Circular.
@@ -1665,8 +1665,8 @@ Singly_linkedList_Circular<T>::~Singly_linkedList_Circular ()
 //
 //
 // Function Name   :  AddToGenListFirst
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :  
 // 
 //                     [IN]T *pNodeData.
@@ -1737,8 +1737,8 @@ pNewNode-> Data = *pNodeData;
 //
 //
 // Function Name   :  DisplayGenList
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :
 //                    NONE
 // Description     :
@@ -1768,8 +1768,8 @@ Singly_linkedList_Circular<T>::DisplayGenList()
 //
 //
 // Function Name   :  AddToGenListLast
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :
 //
 //                   [IN] GEN_LIST<T> **ppListToBeAppended.
@@ -1844,8 +1844,8 @@ pNewNode-> Data = *pNodeData;
 //
 //
 // Function Name   :  FreeGenList
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :  NONE
 //
 // Description     :  This function frees singly circular linked list
@@ -1886,8 +1886,8 @@ Singly_linkedList_Circular<T>::FreeGenList()
 //
 //
 // Function Name   :  CountGenListNode
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :
 //                    NONE
 // Description     :
@@ -1922,8 +1922,8 @@ Singly_linkedList_Circular<T>::CountGenListNode ()
 //
 //
 // Function Name   :   SearchFirstOccurance
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :
 //
 //                     [IN] GEN_LIST<T>data.
@@ -1967,8 +1967,8 @@ Singly_linkedList_Circular<T>::SearchFirstOccurance(
 //
 //
 // Function Name   :  SearchAllOccurance
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :
 //
 //                    [IN] GEN_LIST<T> data.
@@ -2011,8 +2011,8 @@ Singly_linkedList_Circular<T>::SearchAllOccurance(
 //
 //
 // Function Name   :   InsertAtPosition
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :
 //
 //                     [IN] int pos.
@@ -2095,8 +2095,8 @@ Singly_linkedList_Circular<T>::InsertAtPosition(
 //
 //
 // Function Name   :   DeleteFromGenListFirst
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :   NONE
 //
 //
@@ -2135,8 +2135,8 @@ Singly_linkedList_Circular<T>::DeleteFromGenListFirst()
 //
 //
 // Function Name   :   DeleteFromGenListLast
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :   NONE
 //
 // Description     :
@@ -2182,8 +2182,8 @@ BOOL Singly_linkedList_Circular<T>::DeleteFromGenListLast()
 //
 //
 // Function Name   :   DeleteAtPosition
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :
 //                     NONE
 //                     [IN] int pos.
@@ -2240,8 +2240,8 @@ Singly_linkedList_Circular<T>::DeleteAtPosition(
 //
 //
 // Function Name    :   Doubly_linkedList_Circular
-// Function Date    :   20 Aug 2020
-// Function Author  :   Prasad Dangare
+// Function Date    :   18/07/2024
+// Function Author  :   Pratik Jagtap
 // Parameters       :   NONE
 // Description      :   
 //                      This Is Constructor Of Class Doubly_linkedList_Circular.
@@ -2261,8 +2261,8 @@ Doubly_linkedList_Circular<T>::Doubly_linkedList_Circular()
 //
 //
 // Function Name    :   ~Doubly_linkedList_Circular
-// Function Date    :   20 Aug 2020
-// Function Author  :   Prasad Dangare
+// Function Date    :   18/07/2024
+// Function Author  :   Pratik Jagtap
 // Parameters       :   NONE
 // Description      :   
 //                      This Is Distructor Of Class Doubly_linkedList_Circular.
@@ -2295,8 +2295,8 @@ Doubly_linkedList_Circular<T>::~Doubly_linkedList_Circular ()
 //
 //
 // Function Name   :  AddToGenListFirst
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :  
 // 
 //                     [IN]T *pNodeData.
@@ -2369,8 +2369,8 @@ pNewNode-> pPrev = NULL;
 //
 //
 // Function Name   :  AddToGenListLast
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :
 //
 //                   [IN] GEN_LIST<T>**ppListToBeAppended.
@@ -2447,8 +2447,8 @@ pNewNode-> pPrev = NULL;
 //
 //
 // Function Name   :  FreeGenList
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :  NONE
 //
 // Description     :  This function frees Doubly circular linked list
@@ -2490,8 +2490,8 @@ Doubly_linkedList_Circular<T>::FreeGenList()
 //
 //
 // Function Name   :   DisplayGenList
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :
 //                     [IN] GEN_DLIST<T> *pListHead
 //                     Holds head pointer of list
@@ -2523,8 +2523,8 @@ Doubly_linkedList_Circular<T>::DisplayGenList()
 //
 //
 // Function Name   :  CountGenListNode
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :
 //                    [IN] GEN_DLIST<T>*pListHead
 //                    holds head pointer of the list.
@@ -2559,8 +2559,8 @@ int Doubly_linkedList_Circular<T>::CountGenListNode ()
 //
 //
 // Function Name   :   SearchFirstOccurance
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :
 //
 //                     [IN] GEN_DLIST<T> data.
@@ -2603,8 +2603,8 @@ int Doubly_linkedList_Circular<T>::SearchFirstOccurance(
 //
 //
 // Function Name   :  SearchAllOccurance
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :
 //
 //                    [IN] GEN_DLIST<T> data.
@@ -2647,8 +2647,8 @@ int Doubly_linkedList_Circular<T>::SearchAllOccurance(
 //
 //
 // Function Name   :   InsertAtPosition
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :
 //
 //                     [IN] int pos.
@@ -2733,8 +2733,8 @@ BOOL Doubly_linkedList_Circular<T>::InsertAtPosition(
 //
 //
 // Function Name   :   DeleteFromGenListFirst
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :   NONE
 //
 //
@@ -2774,8 +2774,8 @@ BOOL Doubly_linkedList_Circular<T>::DeleteFromGenListFirst()
 //
 //
 // Function Name   :   DeleteFromGenListLast
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :   NONE
 //
 // Description     :
@@ -2812,8 +2812,8 @@ BOOL Doubly_linkedList_Circular<T>::DeleteFromGenListLast()
 //
 //
 // Function Name   :   DeleteAtPosition
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Parameters      :
 //                    
 //                     [IN] int pos.
@@ -2869,8 +2869,8 @@ Doubly_linkedList_Circular<T>::DeleteAtPosition(
 //
 //
 // Function Name   :  DisplayGenListReverse
-// Function Date   :  20 Aug 2020
-// Function Author :  Prasad Dangare
+// Function Date   :  18/07/2024
+// Function Author :  Pratik Jagtap
 // Parameters      :
 //                    NONE 
 // Description     :
@@ -2910,8 +2910,8 @@ Doubly_linkedList_Circular<T>::DisplayGenListReverse()
 //
 //
 // Function Name   :   Entry Point Function
-// Function Date   :   20 Aug 2020
-// Function Author :   Prasad Dangare
+// Function Date   :   18/07/2024
+// Function Author :   Pratik Jagtap
 // Brif Description      :
 //
 //
