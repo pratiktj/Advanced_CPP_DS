@@ -1,3136 +1,1422 @@
-//This Program Contains Gneric Code for all types of linked list as 
-/////////////
-// 1. singly linear linked list
-// 2. singly circular linked list
-// 3. doubly linked list
-// 4. doubly circular linked list
-/////////////
-
-#include<string.h>
 #include<iostream>
-
 using namespace std;
 
-#define TRUE 1
-#define FALSE 0
-
+/////////////////////////////////////////////////////////////
 //
-// NEW DATA TYPES
+// Code of Singly Linear
 //
-
-typedef int BOOL;            // type defination it gives more clearity, use of my new datatype BOOL.
-typedef unsigned char BYTE; // it is use to access raw memory occupied by other objects (object representation).
-
-//
-// THIS IS GENERIC LINKED LIST OF TYPE T
-//
-
-template <typename T> // we create a single function or a class to work with different data types using template<T>.
-struct GEN_LIST // struct data type i used to group items of possibly different types into a single(GEN_LIST).
-{
-    T       Data;
-    GEN_LIST*pNext;
-};
-
-//
-// THIS IS GENERIC Doubly linkedList OF TYPE T
-//
-
-template <typename T>
-struct GEN_DLIST // for Doubly_linkedList we use (GEN_DLIST).
-{
-    T     Data;
-    GEN_DLIST *pNext,*pPrev;
-};
-
-//////////////////////////////////////////////////
-//
-// Class Name  :  Singly_Linked List
-// Description : This Class represents singly linear linked list
-//
-//////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 
 template <class T>
-class Singly_linkedList
+struct nodeSL
 {
-    public:  // here we use public Access Specifier 
-    GEN_LIST<T> *pHead; // pointing at start of linked List
-    GEN_LIST<T> *pTail; // pointing at end of linked List
-
-    Singly_linkedList();   // for constructor
-
-    ~Singly_linkedList(); //  for distructor
-
-    BOOL AddToGenListFirst(
-                              T *pNodeData
-                          );
-
-    void DisplayGenList();
-
-    BOOL AddToGenListLast(
-                              T *pNodeData
-                         );
-
-    BOOL FreeGenList();
-
-    int CountGenListNode();
-
-    int SearchFirstOccurance(
-                               T data
-                            );
-
-    int SearchAllOccurance(
-                              T data
-                          );
-
-    BOOL InsertAtPosition(
-                              int pos,
-                              T* pNodeData
-                         );
-
-    BOOL DeleteFromGenListFirst();
-
-    BOOL DeleteAtPosition(
-                            int pos
-                         );
-
-    BOOL DeleteFromGenListLast();
-
-    BOOL ReverseList();
-
+    T data;
+    struct nodeSL *next;
 };
-//////////////////////////////////////////////////
-//
-// Class Name  :  Doubly_Linked List
-// Description : This Class represents Doubly linear linked list
-//
-//////////////////////////////////////////////////
 
 template <class T>
-class Doubly_linkedList
+class SinglyLL
 {
+    private:
+        struct nodeSL<T> * First;
+        int iCount;
+
     public:
-    GEN_DLIST<T> *pHead; // pointing at start of linked List
-    GEN_DLIST<T> *pTail; // pointing at end of linked List
+        SinglyLL();
 
-    Doubly_linkedList(); // constructor
+        void Display();
+        int Count();
 
-    ~Doubly_linkedList(); // distructor
+        void InsertFirst(T No);
+        void InsertLast(T No);
+        void InsertAtPos(T No, int iPos);
 
-    BOOL AddToGenListFirst(
-                              T *pNodeData
-                          );
-
-    void DisplayGenList();
-
-    BOOL AddToGenListLast(
-                              T *pNodeData
-                         );
-
-    int CountGenListNode();
-
-    BOOL FreeGenList();
-    
-    int SearchFirstOccurance(
-                               T data
-                            );
-
-    int SearchAllOccurance(
-                              T data
-                          );
-
-    BOOL InsertAtPosition(
-                              int pos,
-                              T *pNodeData
-                         );
-
-    BOOL DeleteFromGenListFirst();
-
-    BOOL DeleteAtPosition(
-                            int pos
-                         );
-
-    BOOL DeleteFromGenListLast();
-
-    BOOL DisplayGenListReverse();
-
+        void DeleteFirst();
+        void DeleteLast();
+        void DeleteAtPos(int iPos);
 };
-
-//////////////////////////////////////////////////
-//
-// Class Name  :  Singly_LinkedList_Circular
-// Description : This Class represents Singly Circular linked list
-//
-//////////////////////////////////////////////////
 
 template <class T>
-class Singly_linkedList_Circular
+SinglyLL<T>::SinglyLL()
 {
-    public:
-    GEN_LIST<T> *pHead; // pointing at start of linked List
-    GEN_LIST<T> *pTail; // pointing at end of linked List
-
-    Singly_linkedList_Circular(); 
-
-    ~Singly_linkedList_Circular();
-
-    BOOL AddToGenListFirst(
-                              T *pNodeData
-                          );
-
-    void DisplayGenList();
-
-    BOOL AddToGenListLast(
-                              T *pNodeData
-                         );
-
-    BOOL FreeGenList();
-    
-    int CountGenListNode();
-
-    int SearchFirstOccurance(
-                               T data
-                            );
-
-    int SearchAllOccurance(
-                              T data
-                          );
-
-    BOOL InsertAtPosition(
-                              int pos,
-                              T* pNodeData
-                         );
-
-    BOOL DeleteFromGenListFirst();
-
-    BOOL DeleteAtPosition(
-                            int pos
-                         );
-
-    BOOL DeleteFromGenListLast();
-
-    BOOL ReverseList();
-
-};
-
-//////////////////////////////////////////////////
-//
-// Class Name  :  Doubly_LinkedList_Circular
-// Description : This Class represents Doubly Circular linked list
-//
-//////////////////////////////////////////////////
-
-template <class T>
-class Doubly_linkedList_Circular
-{
-    public:
-    GEN_DLIST<T> *pHead; // pointing at start of linked List
-    GEN_DLIST<T> *pTail; // pointing at end of linked List
-
-    Doubly_linkedList_Circular();
-
-    ~Doubly_linkedList_Circular();
-
-    BOOL AddToGenListFirst(
-                              T *pNodeData
-                          );
-
-    void DisplayGenList();
-
-    BOOL AddToGenListLast(
-                              T *pNodeData
-                         );
-
-    int CountGenListNode();
-    
-    BOOL FreeGenList();
-    
-    int SearchFirstOccurance(
-                               T data
-                            );
-
-    int SearchAllOccurance(
-                               T data
-                            );
-
-    BOOL InsertAtPosition(
-                              int pos,
-                              T* pNodeData
-                         );
-
-    BOOL DeleteFromGenListFirst();
-
-    BOOL DeleteAtPosition(
-                            int pos
-                         );
-
-    BOOL DeleteFromGenListLast();
-
-    BOOL DisplayGenListReverse();
-
-};
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name    :   Singly_linkedList
-// Function Date    :   18/07/2024
-// Function Author  :   Pratik Jagtap
-// Parameters       :   NONE
-// Description      :   
-//                      This Is Constructor Of Class Singly_linkedList.
-//
-// Returns          :   NONE
-//
-//
-////////////////////////////////////////////////////////////
-template <typename T>
-Singly_linkedList<T>::Singly_linkedList()
-{
-    pHead = NULL;
-    pTail = NULL;
+    cout<<"Inside Constructor\n";
+    First = NULL;
+    iCount = 0;
 }
 
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name    :   ~Singly_linkedList
-// Function Date    :   18/07/2024
-// Function Author  :   Pratik Jagtap
-// Parameters       :   NONE
-// Description      :   
-//                      This Is Distructor Of Class Singly_linkedList.
-//
-// Returns          :   NONE
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-Singly_linkedList<T>::~Singly_linkedList()
+template <class T>
+void SinglyLL<T>::Display()
 {
-    GEN_LIST<T> *pTemp;
-    GEN_LIST<T> *pNavigate;
+    struct nodeSL<T> * temp = First;
 
-    if(NULL != pHead)
+    while(temp != NULL)
     {
-        pNavigate = pHead;
-        while(NULL != pNavigate)
+        cout<<"| "<<temp->data<<"|-> ";
+        temp = temp -> next;
+    }
+    cout<<"NULL\n";
+}
+
+template <class T>
+int SinglyLL<T>::Count()
+{
+    return iCount;
+}
+
+template <class T>
+void SinglyLL<T>::InsertFirst(T No)
+{
+    struct nodeSL<T> * newn = NULL;
+
+    newn = new nodeSL<T>;    // malloc
+
+    newn->data = No;
+    newn->next = NULL;
+
+    if(First == NULL) // if(iCount == 0)
+    {
+        First = newn;
+    }
+    else
+    {
+        newn->next = First;
+        First = newn;
+    }
+    iCount++;
+}
+
+template <class T>
+void SinglyLL<T>::InsertLast(T No)
+{
+    struct nodeSL<T> * newn = NULL;
+    struct nodeSL<T> * temp = First;
+
+    newn = new nodeSL<T>;    // malloc
+
+    newn->data = No;
+    newn->next = NULL;
+
+    if(First == NULL) // if(iCount == 0)
+    {
+        First = newn;
+    }
+    else
+    {
+        while(temp->next != NULL)
         {
-            pTemp = pNavigate->pNext;
-            free(pNavigate);
-            pNavigate = pTemp;
+            temp = temp -> next;
         }
+        temp -> next = newn;
     }
-}
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  AddToGenListFirst
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :  
-// 
-//                     [IN]T *pNodeData.
-//                      Holds the entry which is to be added.
-//
-// Description     :  
-//                   This Function Adds Node To Singly Linear Linked List.
-//                   
-// Returns         :  
-//                     BOOLEAN
-//                    if the function succeds, the return value is TRUE.
-//                    if the function fails, the returns value is FALSE.
-//
-// 
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Singly_linkedList<T>::AddToGenListFirst(
-                                           T *pNodeData
-                                       )
-{
-    GEN_LIST<T> *pNewNode;
-
-    if (NULL == pNodeData)
-    {
-        return FALSE;
-    }
-
-//
-// Allocate new node
-//
-
-pNewNode = (GEN_LIST<T> *)malloc(sizeof(GEN_LIST<T>));
-  if(NULL == pNewNode)
-  {
-      return FALSE;
-  }
-
-//
-// Fill the node with data.
-//
-
-memset(pNewNode, 0, sizeof(GEN_LIST<T>));   
-pNewNode->pNext = NULL;
-pNewNode->Data = *pNodeData;
-
-//
-// Prepend
-//
-
- if (NULL == pHead)
- {
-     pHead = pNewNode;
-     pTail = pNewNode;
- }
- else
-  {
-     pNewNode-> pNext = pHead;
-     pHead = pNewNode;
-  }
-
- return TRUE;
+    iCount++;
 }
 
-/////////////////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  DisplayGenList
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :
-//                    NONE
-// Description     :
-//                    This function display singly linear linked list
-//
-// Returns         :
-//                    void
-//
-//
-/////////////////////////////////////////////////////////////////////////
-
-template <typename T>
-void
-Singly_linkedList<T>::DisplayGenList()
+template <class T>
+void SinglyLL<T>::InsertAtPos(T No, int iPos)
 {
-    GEN_LIST<T> *pTempNode;
-    pTempNode = pHead;
+    struct nodeSL<T> * newn = NULL;
+    int i = 0;
+    struct nodeSL<T> * temp;
 
-    while(NULL != pTempNode)
+    if((iPos < 1) || (iPos > iCount+1))
     {
-        cout<<pTempNode-> Data<<"->";
-        pTempNode = pTempNode-> pNext;
-    }
-}
-
-/////////////////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  AddToGenListLast
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :
-//
-//                   [IN] GEN_LIST<T>**ppListToBeAppended.
-//                   List which is to be appended to an existing list.
-//
-// Description     :
-//                    This function appends node in singly linear linked list
-//
-// Returns         :
-//                    BOOLEAN
-//                    If the function succeds, the return value is TRUE.
-//                    If the function fails, the return value is FALSE.
-//
-//
-/////////////////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Singly_linkedList<T>::AddToGenListLast(
-                                           T *pNodeData
-                                       )
-{
-    GEN_LIST<T> *pNewNode;
-
-    GEN_LIST<T> *pTempNode;
-    pTempNode = pHead;
-
-    if ( NULL == pNodeData )
-    {
-        return FALSE;
+        cout<<"Invalid position\n";
+        return;
     }
 
-//
-// Allocate new node
-//
-
-pNewNode = (GEN_LIST<T> *)malloc(sizeof(GEN_LIST<T>));
-  if(NULL == pNewNode)
-  {
-      return FALSE;
-  }
-
-//
-// Fill the node with data.
-//
-
-memset(pNewNode, 0, sizeof(GEN_LIST<T>));   
-pNewNode-> pNext = NULL;
-pNewNode-> Data = *pNodeData;
-
-//
-// Append
-//
-
- if (NULL == pHead)
- {
-     pHead = pNewNode;
-     pTail = pNewNode;
- }
- else
-  {
-     pTail->pNext = pNewNode;
-     pTail = pNewNode;
-  }
-
- return TRUE;
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  FreeGenList
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :  NONE
-// Description     :  This function frees singly linear linked list
-//                   
-// Returns         :  
-//                     BOOLEAN
-//                    if the function succeds, the return value is TRUE.
-//                    if the function fails, the returns value is FALSE.
-//
-// 
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Singly_linkedList<T>::FreeGenList()
-{
-    GEN_LIST<T> *pTemp;
-    GEN_LIST<T> *pNavigate;
-
-    if (NULL == pHead)
+    if(iPos == 1)
     {
-        return FALSE;
+        InsertFirst(No);
     }
-
- pNavigate = pHead;
- while (NULL != pNavigate)
- {
-     pTemp = pNavigate->pNext;
-     free(pNavigate);
-     pNavigate = pTemp;
- }
-
-  return TRUE;
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  CountGenListNode
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :
-//                    NONE
-// Description     :
-//                    This function counts nodes in singly linear linked list
-//
-// Returns         :
-//                    int
-//                    number of node in generic list
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-int
-Singly_linkedList<T>::CountGenListNode ()
-{
-    // variable for maintaning numbers of nodes
-    int CountNode = 0;
-    GEN_LIST<T> *pListHead = pHead;
-
-    // Travers the linked list till end  
-    while(NULL != pListHead)
+    else if(iPos == iCount+1)
     {
-        CountNode++;
-        pListHead = pListHead-> pNext;
+        InsertLast(No);
     }
-    return CountNode;
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   SearchFirstOccurance
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :
-//
-//                     [IN] GEN_LIST<T>Data.
-//                     holds head data to be searched.
-//
-// Description     :
-//                     this function search perticular data in singly linear linked list.
-//                     and returns the position at which data is found.
-//
-// Returns         :
-//                     int
-//                     position at which data is found in generic list.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-int
-Singly_linkedList<T>::SearchFirstOccurance(
-                                               T data
-                                           )
-{
-    int CountNode = 0;
-    GEN_LIST<T> *pListHead = pHead;
-
-    // Traverse the linked list till end
-    while (pListHead != NULL)
+    else 
     {
-        ++CountNode;
+        temp = First;
         
-        // If the matches with the input value
-        if(memcmp(&(pListHead-> Data), &data, sizeof(data)) == 0)
+        newn = new nodeSL<T>;
+        newn->data = No;
+        newn->next = NULL;
+
+        for(i = 1; i < iPos-1; i++)
         {
-            // Break the loop as we get the first occurance
-            return CountNode;
-        } 
-        pListHead = pListHead->pNext;
-    }
-
- return -1;
-}          
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  SearchAllOccurance
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :
-//
-//                    [IN] GEN_LIST<T> data.
-//                    Holds head data to be searched.
-//
-// Description     :
-//                    This function search perticular data in Singly linear linked list.
-//                    and return number of occurance of that data.
-//
-// Returns         :
-//                    int
-//                    number of times data is found in generic list.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-int
-Singly_linkedList<T>::SearchAllOccurance(
-                                             T data
-                                         )
-
-
-{
-    int CountNode = 0;
-    GEN_LIST<T> *pListHead = pHead;
-
-    // Travers the linked list till end  
-    while(pListHead != NULL)
-    {
-        // If the data matches with the input value 
-        if(memcmp(&(pListHead-> Data), &data, sizeof(data) ) == 0)
-        {
-            ++CountNode;
+            temp = temp -> next;
         }
-        pListHead = pListHead-> pNext;
+
+        newn->next = temp->next;
+        temp -> next = newn;
+        iCount++;
     }
-    
- return CountNode;
 }
 
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   InsertAtPosition
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :
-//
-//                     [IN] int pos.
-//                     Holds the position.
-//
-//                     [IN] T *pNodeData.
-//                     Holds the entry which is to be added.
-//
-// Description     :
-//                     this function adds node at specified position in singly linear linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Singly_linkedList<T>::InsertAtPosition(
-                                            int pos,
-                                            T* pNodeData
-                                       )
+template <class T>
+void SinglyLL<T>::DeleteFirst()
 {
-    int i = 1;
+    struct nodeSL<T> * temp = First;
 
-    GEN_LIST<T> *temp = NULL;
-    GEN_LIST<T> *pNewNode = NULL;
-
-    // If the linked list is empty
-    if (pHead == NULL)
+    if(First == NULL)
     {
-        return FALSE;
+        cout<<"LL is empty\n";
+        return;
     }
-
-    else if(pos == 1)
+    else if(First -> next == NULL)
     {
-        AddToGenListFirst(pNodeData);
-    }
-    else if(pos == (CountGenListNode()) + 1)
-    {
-        AddToGenListLast(pNodeData);
-    }
-    else if((pos > CountGenListNode()))
-    {
-        return FALSE;
+        delete First;
+        First = NULL;
     }
     else
     {
-       temp = pHead;
-       pNewNode = (GEN_LIST<T> *)malloc(sizeof(GEN_LIST<T> ));
-       if(NULL == pNewNode)
-       {
-           return FALSE;
-       }
-
-       //
-       // Fill the node with Data
-       //
-       
-       memset(pNewNode, 0, sizeof(GEN_LIST<T>));
-       pNewNode-> pNext = NULL;
-       pNewNode-> Data = *pNodeData;
-
-       while(i < pos - 1)
-       {
-           temp = temp-> pNext;
-           ++i;
-       }
-       pNewNode-> pNext = temp-> pNext;
-       temp-> pNext = pNewNode;
+        First = First -> next;
+        delete temp;
     }
-    
-    return TRUE;
-}               
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   DeleteFromGenListFirst
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :   NONE
-// Description     :
-//                     this function removes first node from singly linear linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Singly_linkedList<T>::DeleteFromGenListFirst()
-{
-    GEN_LIST <T> *temp;
-    temp = pHead;
-
-    // if linked list is empty
-    if(pHead == NULL)
-    {
-        return FALSE;
-    }
-    else
-    {
-        pHead = temp-> pNext;
-        free(temp);
-    }
-    return TRUE;    
+    iCount--;
 }
 
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   DeleteFromGenListLast
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :   NONE
-//
-// Description     :
-//                     this function removes last node from singly linear linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL Singly_linkedList<T>::DeleteFromGenListLast()
+template <class T>
+void SinglyLL<T>::DeleteLast()
 {
-    GEN_LIST<T> *temp1, *temp2;
-    temp1 = temp2 = pHead;
-    
-    // If linked list is empty
-    if(pHead == NULL)
+    struct nodeSL<T> * temp = First;
+
+    if(First == NULL)
     {
-        return FALSE;
-    } 
+        cout<<"LL is empty\n";
+        return;
+    }
+    else if(First -> next == NULL)
+    {
+        delete First;
+        First = NULL;
+    }
     else
     {
-        while(temp1-> pNext != NULL)
+        while(temp->next->next != NULL)
         {
-            temp2 = temp2-> pNext;
-            temp1 = temp2-> pNext;
+            temp = temp ->next;
         }
-        temp2-> pNext = NULL;
-        free(temp1);
+        delete temp->next;
+        temp->next = NULL;
     }
-
-    return TRUE;   
+    iCount--;
 }
 
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   DeleteAtPosition
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :   NONE
-//                     [IN] int pos.
-//                     Holds the position.
-//
-// Description     :
-//                     this function delete node from  specified position in singly linear linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Singly_linkedList<T>::DeleteAtPosition(
-                                          int pos
-                                       )
+template <class T>
+void SinglyLL<T>::DeleteAtPos(int iPos)
 {
-    if(pos > (CountGenListNode()))
-    {
-        return FALSE;
-    }
-    else if(pos == 1)
-    {
-        DeleteFromGenListFirst();
-    }
-    else if(pos == (CountGenListNode()))
-    {
-        DeleteFromGenListLast();
-    }
-    else
-    {
-       int i = 0;
-       GEN_LIST<T> *temp = pHead, *t;
+    int i = 0;
+    struct nodeSL<T> * temp1;
+    struct nodeSL<T> * temp2;
 
-       for(i = 0; i < pos -1; i++)
-       {
-           t = temp;
-           temp = temp-> pNext;
-       }
-       t-> pNext = temp-> pNext;
-       temp-> pNext = NULL;
-       free(temp);
+    if((iPos < 1) || (iPos > iCount))
+    {
+        cout<<"Invalid position\n";
+        return;
     }
 
-    return TRUE;   
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   ReverseList
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :
-//                    NONE
-// Description     :
-//                     this function reverse singly linear linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL Singly_linkedList<T>::ReverseList()
-{
-    GEN_LIST<T> *prev = NULL;
-    GEN_LIST<T> *current = pHead;
-    GEN_LIST<T> *next = NULL;
-
-    // If the linked list is empty
-    if(pHead == NULL)
+    if(iPos == 1)
     {
-        return FALSE;
+        DeleteFirst();
     }
-    
-    while(current != NULL)
+    else if(iPos == iCount)
     {
-        next = current-> pNext;
-        current-> pNext = prev;
-        prev = current;
-        current = next;
+        DeleteLast();
     }
-    pHead = prev;
-
-    return TRUE;
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name    :   Doubly_linkedList
-// Function Date    :   18/07/2024
-// Function Author  :   Pratik Jagtap
-// Parameters       :   NONE
-// Description      :   
-//                      This Is Constructor Of Class Doubly_linkedList.
-//
-// Returns          :   NONE
-//
-//
-////////////////////////////////////////////////////////////
-template <typename T>
-Doubly_linkedList<T>::Doubly_linkedList()
-{
-    pHead = NULL;
-    pTail = NULL;
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name    :   ~Doubly_linkedList
-// Function Date    :   18/07/2024
-// Function Author  :   Pratik Jagtap
-// Parameters       :   NONE
-// Description      :   
-//                      This Is Distructor Of Class Doubly_linkedList.
-//
-// Returns          :   NONE
-//
-//
-////////////////////////////////////////////////////////////
-template <typename T>
-Doubly_linkedList<T>::~Doubly_linkedList ()
-{
-    GEN_DLIST<T> *pTemp;
-    GEN_DLIST<T> *pNavigate;
-
-    if(NULL != pHead)
+    else 
     {
-        pNavigate = pHead;
-        while(NULL != pNavigate)
+        temp1 = First;
+
+        for(i = 1; i < iPos-1; i++)
         {
-            pTemp = pNavigate->pNext;
-            free(pNavigate);
-            pNavigate = pTemp;
+            temp1 = temp1 -> next;
         }
-    }
+
+        temp2 = temp1->next;
+
+        temp1->next = temp2->next;
+        delete temp2;
+
+        iCount--;
+    }    
 }
 
-////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 //
+// Code of Doubly Circular
 //
-// Function Name   :  AddToGenListFirst
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :  
-// 
-//                     [IN]T *pNodeData.
-//                      Holds the entry which is to be added.
-//
-// Description     :  
-//                   This Function Adds Node To Doubly Linear Linked List.
-//                   
-// Returns         :  
-//                     BOOLEAN
-//                    if the function succeds, the return value is TRUE.
-//                    if the function fails, the returns value is FALSE.
-//
-// 
-////////////////////////////////////////////////////////////
-template <typename T>
-BOOL
-Doubly_linkedList<T>::AddToGenListFirst(
-                                           T *pNodeData
-                                       )
+/////////////////////////////////////////////////////////////
+template <class T>
+struct nodeDC
 {
-    GEN_DLIST<T> *pNewNode = NULL;
+    T data;
+    struct nodeDC *next;
+    struct nodeDC *prev;
+};
 
-    if ( NULL == pNodeData )
-    {
-        return FALSE;
-    }
+template <class T>
+class DoublyCL
+{
+    private:
+        struct nodeDC<T> * First;
+        struct nodeDC<T> * Last;
+        int iCount;
 
-//
-// Allocate new node
-//
+    public:
+        DoublyCL();
 
-pNewNode = (GEN_DLIST<T> *)malloc(sizeof(GEN_DLIST<T>));
-  if(NULL == pNewNode)
-  {
-      return FALSE;
-  }
+        void Display();
+        int Count();
 
-//
-// Fill the node with data.
-//
+        void InsertFirst(T No);
+        void InsertLast(T No);
+        void InsertAtPos(T No, int iPos);
 
-memset(pNewNode, 0, sizeof(GEN_DLIST<T>));   
-pNewNode-> pNext = NULL;
-pNewNode-> Data = *pNodeData;
-pNewNode-> pPrev = NULL;
+        void DeleteFirst();
+        void DeleteLast();
+        void DeleteAtPos(int iPos);
+};
 
-//
-// Prepend
-//
-
- if (NULL == pHead)
- {
-     pHead = pNewNode;
-     pTail = pNewNode;
- }
- else
-  {
-     pNewNode-> pNext = pHead;
-     (pHead)-> pPrev = pNewNode;
-     pHead = pNewNode;
-  }
-
- return TRUE;
+template <class T>
+DoublyCL<T>:: DoublyCL()
+{
+    First = NULL;
+    Last = NULL;
+    iCount = 0;
 }
 
-/////////////////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  AddToGenListLast
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :
-//
-//                   [IN] GEN_DLIST<T> **ppListToBeAppended.
-//                   List which is to be appended to an existing list.
-//
-// Description     :
-//                    This function appends node in Doubly linear linked list
-//
-// Returns         :
-//                    BOOLEAN
-//                    If the function succeds, the return value is TRUE.
-//                    If the function fails, the return value is FALSE.
-//
-//
-/////////////////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Doubly_linkedList<T>::AddToGenListLast(
-                                           T *pNodeData
-                                       )
+template <class T>
+void DoublyCL<T>::Display()
 {
-    GEN_DLIST<T> *pNewNode = NULL;
-
-    GEN_DLIST<T> *pTempNode = NULL;
-    
-    pTempNode = pHead;
-
-    if ( NULL == pNodeData )
+    if(First == NULL && Last == NULL)
     {
-        return FALSE;
+        cout<<"Linked List is emprty\n";
+        return;
     }
 
-//
-// Allocate new node
-//
-
-pNewNode = (GEN_DLIST<T> *)malloc(sizeof(GEN_DLIST<T>));
-  if(NULL == pNewNode)
-  {
-      return FALSE;
-  }
-
-//
-// Fill the node with data.
-//
-
-memset(pNewNode, 0, sizeof(GEN_DLIST<T>));   
-pNewNode-> pNext = NULL;
-pNewNode-> Data = *pNodeData;
-pNewNode-> pPrev = NULL;
-//
-// Append
-//
-
- if (NULL == pHead)
- {
-     pHead = pNewNode;
-     pTail = pNewNode;
- }
- else
-  {
-     pNewNode->pPrev = pTail;
-     pTail->pNext = pNewNode;
-     pTail = pNewNode;
-  }
-
- return TRUE;
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  FreeGenList
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :  NONE
-// Description     :  This function frees Doubly linear linked list
-//                   
-//
-//
-// Returns         :  
-//                     BOOLEAN
-//                    if the function succeds, the return value is TRUE.
-//                    if the function fails, the returns value is FALSE.
-//
-// 
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Doubly_linkedList<T>::FreeGenList()
-{
-    GEN_DLIST<T> *pTemp;
-    GEN_DLIST<T> *pNavigate;
-
-    if (NULL == pHead)
-    {
-        return FALSE;
-    }
-
- pNavigate = pHead;
- while (NULL != pNavigate)
- {
-     pTemp = pNavigate->pNext;
-     free(pNavigate);
-     pNavigate = pTemp;
- }
-
-  return TRUE;
-}
-
-
-////////////////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   DisplayGenList
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :
-//                     [IN] GEN_LIST<T> *pListHead
-//                     holds head pointer of the list.
-//
-// Description     :
-//                    This function display Doubly linear linked list.
-//
-// Returns         :
-//                     void
-//
-//
-////////////////////////////////////////////////////////////////////////
-
-template <typename T>
-void
-Doubly_linkedList<T>::DisplayGenList()
-{
-    GEN_DLIST<T> *pTempNode = pHead;
-
-    while(NULL != pTempNode)
-    {
-        cout<<pTempNode-> Data<<"<==>";
-        pTempNode = pTempNode-> pNext;
-    }
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  CountGenListNode
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :
-//                    [IN] GEN_DLIST<T> *pListHead.
-//                    Holds head pointer of list
-//
-// Description     :
-//                    This function counts nodes in Doubly linear linked list
-//
-// Returns         :
-//                    int
-//                    number of node in generic list
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-int Doubly_linkedList<T>::CountGenListNode()
-{
-    // variable for maintaning numbers of nodes
-    int CountNode = 0;
-    GEN_DLIST<T> *pTempNode = pHead;
-
-    // Travers the linked list till end  
-    while(NULL != pTempNode)
-    {
-        CountNode++;
-        pTempNode = pTempNode-> pNext;
-    }
-    return CountNode;
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   SearchFirstOccurance
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :
-//
-//                     [IN] GEN_DLIST<T> data.
-//                     holds head data to be searched.
-//
-// Description     :
-//                     this function search perticular data in Doubly linear linked list.
-//                     and returns the position at which data is found.
-//
-// Returns         :
-//                     int
-//                     position at which data is found in generic list.
-//
-//
-////////////////////////////////////////////////////////////
-template <typename T>
-int Doubly_linkedList<T>::SearchFirstOccurance(
-                                               T data
-                                           ) // Data to be searched
-{
-    int CountNode = 0;
-    GEN_DLIST<T> *pTempNode = pHead;
-
-    // Traverse the linked list till end
-    while (pTempNode != NULL)
-    {
-        ++CountNode;
-        
-        // If the matches with the input value
-        if(memcmp(&(pTempNode-> Data), &data, sizeof(data)) == 0)
-        {
-            // Break the loop as we get the first occurance
-            return CountNode;
-        } 
-        pTempNode = pTempNode-> pNext;
-    }
-
- return -1;
-}          
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  SearchAllOccurance
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :
-//
-//                    [IN] GEN_DLIST<T> data.
-//                    Holds head data to be searched.
-//
-// Description     :
-//                    This function search perticular data in Doubly linear linked list.
-//                    and return number of occurance of that data.
-//
-// Returns         :
-//                    int
-//                    number of times data is found in generic list.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-int Doubly_linkedList<T>::SearchAllOccurance(
-                                               T data
-                                              )
-{
-    int CountNode = 0;
-     GEN_DLIST<T> *pTempNode = pHead;
-
-    // Travers the linked list till end  
-    while(pTempNode != NULL)
-    {
-        // If the data matches with the input value 
-        if(memcmp(&(pTempNode-> Data), &data, sizeof(data)) == 0)
-        {
-            ++CountNode;
-        }
-        pTempNode = pTempNode-> pNext;
-    }
-    
- return CountNode;
-}
-
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   InsertAtPosition
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :
-//
-//                     [IN] int pos.
-//                     Holds the position.
-//
-//                     [IN] T *pNodeData.
-//                     Holds the entry which is to be added.
-//
-// Description     :
-//                     this function adds node at specified position in Doubly linear linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL Doubly_linkedList<T>::InsertAtPosition(
-                                            int pos, // position at which node is inserted
-                                            T* pNodeData // Data members of the node
-                                       )
-{
-    int i = 1;
-
-    GEN_DLIST<T> *temp = NULL;
-    GEN_DLIST<T> *pNewNode = NULL;
-
-    // If the linked list is empty
-    if (pHead == NULL)
-    {
-        return FALSE;
-    }
-
-    else if(pos == 1)
-    {
-        AddToGenListFirst(pNodeData);
-    }
-    else if(pos == (CountGenListNode()) + 1)
-    {
-        AddToGenListLast(pNodeData);
-    }
-    else if((pos > CountGenListNode()))
-    {
-        return FALSE;
-    }
-    else
-    {
-       temp = pHead;
-       pNewNode = (GEN_DLIST<T> *)malloc(sizeof(GEN_DLIST<T>));
-       if(NULL == pNewNode)
-       {
-           return FALSE;
-       }
-
-       //
-       // Fill the node with Data
-       //
-       
-       memset(pNewNode, 0, sizeof(GEN_DLIST<T>));
-       pNewNode-> pNext = NULL;
-       pNewNode-> Data = *pNodeData;
-       pNewNode-> pPrev = NULL;
-
-       while(i < pos - 1)
-       {
-           temp = temp-> pNext;
-           ++i;
-       }
-       pNewNode-> pNext = temp-> pNext;
-       temp-> pNext-> pPrev = pNewNode;
-       temp-> pNext = pNewNode;
-       pNewNode->pPrev = temp;
-    }
-    
-    return TRUE;
-}               
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   DeleteFromGenListFirst
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-//
-// Parameters      :   NONE
-// Description     :
-//                     this function removes first node from Doubly linear linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-
-template <typename T>
-BOOL Doubly_linkedList<T>::DeleteFromGenListFirst()
-{
-    GEN_DLIST <T> *temp = NULL;
-    temp = pHead;
-
-    // if linked list is empty
-    if(pHead == NULL)
-    {
-        return FALSE;
-    }
-    else
-    {
-        pHead = temp-> pNext;
-        pHead-> pPrev = NULL;
-        free(temp);
-    }
-    return TRUE;    
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   DeleteFromGenListLast
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :   NONE
-//
-// Description     :
-//                     this function removes last node from Doubly linear linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL Doubly_linkedList<T>::DeleteFromGenListLast()
-{
-    GEN_DLIST<T> *temp1, *temp2;
-    temp1 = temp2 = pHead;
-    
-    // If linked list is empty
-    if(pHead == NULL)
-    {
-        return FALSE;
-    } 
-    else
-    {
-        while(temp1-> pNext != NULL)
-        {
-            temp2 = temp2-> pNext;
-            temp1 = temp2-> pNext;
-        }
-        temp2-> pNext = NULL;
-        free(temp1);
-    }
-
-    return TRUE;   
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   DeleteAtPosition
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-//
-// Parameters      :
-//                     [IN] int pos.
-//                     Holds the position.
-//
-// Description     :
-//                     this function delete node from  specified position in Doubly linear linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Doubly_linkedList<T>::DeleteAtPosition(
-                                          int pos
-                                       )
-{
-    if(pos > (CountGenListNode()))
-    {
-        return FALSE;
-    }
-    else if(pos == 1)
-    {
-        DeleteFromGenListFirst();
-    }
-    else if(pos == (CountGenListNode()))
-    {
-        DeleteFromGenListLast();
-    }
-    else
-    {
-       int i = 0;
-       GEN_DLIST<T> *temp = pHead, *t;
-
-       for(i = 0; i < pos -1; i++)
-       {
-           t = temp;
-           temp = temp-> pNext;
-       }
-       t-> pNext = temp-> pNext;
-       temp-> pNext->pPrev = t;
-       free(temp);
-    }
-
-    return TRUE;   
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   DisplayGenListReverse
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :
-//                    NONE
-// Description     :
-//                     this function Display Doubly linear linked list in reverse manner
-//                     
-// Returns         :
-//
-//                     void
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL 
-Doubly_linkedList<T>::DisplayGenListReverse()
-{
-    GEN_DLIST<T> *temp = pTail;
-
-    if(pHead == NULL)
-    {
-        return TRUE;
-    }
-    else
-    {
-     while(temp != NULL)
-     {
-        printf("|%d|<=>", temp-> Data);
-        temp = temp-> pPrev;
-     }
-    }
-    return FALSE;
-}
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//
-// Function Name    :   Singly_linkedList_Circular
-// Function Date    :   18/07/2024
-// Function Author  :   Pratik Jagtap
-// Parameters       :   NONE
-// Description      :   
-//                      This Is Constructor Of Class Singly_linkedList_Circular.
-//
-// Returns          :   NONE
-//
-//
-////////////////////////////////////////////////////////////
-template <typename T>
-Singly_linkedList_Circular<T>::Singly_linkedList_Circular ()
-{
-    pHead = NULL;
-    pTail = NULL;
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name    :   ~Singly_linkedList_Circular
-// Function Date    :   18/07/2024
-// Function Author  :   Pratik Jagtap
-// Parameters       :   NONE
-// Description      :   
-//                      This Is Distructor Of Class Singly_linkedList_Circular.
-//
-// Returns          :   NONE
-//
-//
-////////////////////////////////////////////////////////////
-template <typename T>
-Singly_linkedList_Circular<T>::~Singly_linkedList_Circular ()
-{
-/*    GEN_LIST<T> *pTemp;
-    GEN_LIST<T> *pNavigate;
-
-    if(NULL != pHead)
-    {
-        pNavigate = pHead;
-        while(NULL != pNavigate)
-        {
-            pTemp = pNavigate->pNext;
-            free(pNavigate);
-            pNavigate = pTemp;
-        }
-    }
-*/
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  AddToGenListFirst
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :  
-// 
-//                     [IN]T *pNodeData.
-//                      Holds the entry which is to be added.
-//
-// Description     :  
-//                   This Function Adds Node To Singly Circular Linked List.
-//                   
-// Returns         :  
-//                     BOOLEAN
-//                    if the function succeds, the return value is TRUE.
-//                    if the function fails, the returns value is FALSE.
-//
-// 
-////////////////////////////////////////////////////////////
-template <typename T>
-BOOL
-Singly_linkedList_Circular<T>::AddToGenListFirst(
-                                           T *pNodeData
-                                       )
-{
-    GEN_LIST<T> *pNewNode;
-
-    if (NULL == pNodeData)
-    {
-        return FALSE;
-    }
-
-//
-// Allocate new node
-//
-
-pNewNode = (GEN_LIST<T> *)malloc(sizeof(GEN_LIST<T>));
-  if(NULL == pNewNode)
-  {
-      return FALSE;
-  }
-
-//
-// Fill the node with data.
-//
-
-memset(pNewNode, 0, sizeof(GEN_LIST<T>));   
-pNewNode-> pNext = NULL;
-pNewNode-> Data = *pNodeData;
-
-//
-// Prepend
-//
-
- if (NULL == pHead && pTail == NULL)
- {
-     pHead = pNewNode;
-     pTail = pNewNode;
-     pTail-> pNext = pHead;
- }
- else
-  {
-     pNewNode-> pNext = pHead;
-     pHead = pNewNode;
-     pTail-> pNext = pNewNode;
-  }
-
- return TRUE;
-}
-
-/////////////////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  DisplayGenList
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :
-//                    NONE
-// Description     :
-//                    This function display singly Circular linked list
-//
-// Returns         :
-//                    void
-//
-//
-/////////////////////////////////////////////////////////////////////////
-
-template <typename T>
-void
-Singly_linkedList_Circular<T>::DisplayGenList()
-{
-    GEN_LIST<T> *pTempNode;
-    pTempNode = pHead;
-
+    cout<<"<=> ";
     do
     {
-       cout<<pTempNode-> Data<<"->";
-       pTempNode = pTempNode-> pNext;  
-    } while(pTempNode != pTail->pNext);   
+        cout<<"| "<<First->data <<"| <=> ";
+        First = First -> next;
+    }while(Last -> next != First);
+
+    cout<<"\n";
 }
 
-/////////////////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  AddToGenListLast
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :
-//
-//                   [IN] GEN_LIST<T> **ppListToBeAppended.
-//                   List which is to be appended to an existing list.
-//
-// Description     :
-//                    This function appends node in singly Circular linked list
-//
-// Returns         :
-//                    BOOLEAN
-//                    If the function succeds, the return value is TRUE.
-//                    If the function fails, the return value is FALSE.
-//
-//
-/////////////////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Singly_linkedList_Circular<T>::AddToGenListLast(
-                                           T *pNodeData
-                                       )
+template <class T>
+int DoublyCL<T>::Count()
 {
-    GEN_LIST<T> *pNewNode;
+    return iCount;
+}
 
-    GEN_LIST<T> *pTempNode;
-    pTempNode = pHead;
+template <class T>
+void DoublyCL<T>::InsertFirst(T No)
+{
+    struct nodeDC<T> * newn = NULL;
 
-    if (NULL == pNodeData)
+    newn = new nodeDC<T>;
+
+    newn->data = No;
+    newn->next = NULL;
+    newn->prev = NULL;
+
+    if((First == NULL) && (Last == NULL))
     {
-        return FALSE;
+        First = newn;
+        Last = newn;
+    }
+    else
+    {
+        newn->next = First;
+        First->prev = newn;
+        First = newn;
+    }
+    Last -> next = First;
+    First -> prev = Last;
+
+    iCount++;
+}
+
+template <class T>
+void DoublyCL<T>::InsertLast(T No)
+{
+    struct nodeDC<T> * newn = NULL;
+
+    newn = new nodeDC<T>;
+
+    newn->data = No;
+    newn->next = NULL;
+    newn->prev = NULL;
+
+    if((First == NULL) && (Last == NULL))
+    {
+        First = newn;
+        Last = newn;
+    }
+    else
+    {
+        Last ->next = newn;
+        newn->prev = Last;
+        Last = newn;
+    }
+    Last -> next = First;
+    First -> prev = Last;
+
+    iCount++;    
+}
+
+template <class T>
+void DoublyCL<T>::InsertAtPos(T No, int iPos)
+{
+    struct nodeDC<T> * temp = NULL;
+    struct nodeDC<T> * newn = NULL;
+
+    int i = 0;
+
+    if(iPos < 1 || iPos > iCount+1)
+    {
+        cout<<"Invalid postion\n";
+        return;
     }
 
-//
-// Allocate new node
-//
-
-pNewNode = (GEN_LIST<T> *)malloc(sizeof(GEN_LIST<T>));
-  if(NULL == pNewNode)
-  {
-      return FALSE;
-  }
-
-//
-// Fill the node with data.
-//
-
-memset(pNewNode, 0, sizeof(GEN_LIST<T>));   
-pNewNode-> pNext = NULL;
-pNewNode-> Data = *pNodeData;
-
-//
-// Append
-//
-
- if (NULL == pHead && pTail == NULL)
- {
-     pHead = pNewNode;
-     pTail = pNewNode;
-     pTail->pNext = pHead;
- }
- else
-  {
-     pTail->pNext = pNewNode;
-     pTail = pNewNode;
-     pTail->pNext = pHead;
-  }
-
- return TRUE;
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  FreeGenList
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :  NONE
-//
-// Description     :  This function frees singly circular linked list
-//                   
-//
-// Returns         :  
-//                     BOOLEAN
-//                    if the function succeds, the return value is TRUE.
-//                    if the function fails, the returns value is FALSE.
-//
-// 
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Singly_linkedList_Circular<T>::FreeGenList()
-{
-    GEN_LIST<T> *pTemp;
-    GEN_LIST<T> *pNavigate;
-
-    if (NULL == pHead)
+    if(iPos == 1)
     {
-        return FALSE;
+        InsertFirst(No);
     }
-
- pNavigate = pHead;
- while (NULL != pNavigate)
- {
-     pTemp = pNavigate->pNext;
-     free(pNavigate);
-     pNavigate = pTemp;
- }
-
-  return TRUE;
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  CountGenListNode
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :
-//                    NONE
-// Description     :
-//                    This function counts nodes in singly Circular linked list
-//
-// Returns         :
-//                    int
-//                    number of node in generic list
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-int
-Singly_linkedList_Circular<T>::CountGenListNode ()
-{
-    // variable for maintaning numbers of nodes
-    int CountNode = 0;
-    GEN_LIST<T> *pTempNode;
-    pTempNode = pHead;
-
-    do
+    else if(iPos == iCount+1)
     {
-        CountNode++;
-        pTempNode = pTempNode-> pNext;
-    } while(pTempNode != pTail->pNext);
-    
-    return CountNode;
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   SearchFirstOccurance
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :
-//
-//                     [IN] GEN_LIST<T>data.
-//                     holds head data to be searched.
-//
-// Description     :
-//                     this function search perticular data in singly Circular linked list.
-//                     and returns the position at which data is found.
-//
-// Returns         :
-//                     int
-//                     position at which data is found in generic list.
-//
-//
-////////////////////////////////////////////////////////////
-template <typename T>
-int
-Singly_linkedList_Circular<T>::SearchFirstOccurance(
-                                               T data
-                                           )
-{
-    int CountNode = 0;
-    GEN_LIST<T> *pListHead = pHead;
-
-    // Traverse the linked list till end
-    do
+        InsertLast(No);
+    }
+    else
     {
-        CountNode++;
-        if(memcmp(&(pListHead-> Data), &data, sizeof(data)) == 0)
+        newn = new nodeDC<T>;
+
+        newn->data = No;
+        newn->next = NULL;
+        newn->prev = NULL;
+
+        temp = First;
+
+        for(i = 1; i < iPos -1; i++)
         {
-            // Break the loop as we get the first occurance
-            return CountNode;
-        } 
-        pListHead = pListHead->pNext;
-    }while(pListHead != pTail->pNext);
-
- return -1;
-}          
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  SearchAllOccurance
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :
-//
-//                    [IN] GEN_LIST<T> data.
-//                    Holds head data to be searched.
-//
-// Description     :
-//                    This function search perticular data in Singly Circular linked list.
-//                    and return number of occurance of that data.
-//
-// Returns         :
-//                    int
-//                    number of times data is found in generic list.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-int
-Singly_linkedList_Circular<T>::SearchAllOccurance(
-                                                       T data
-                                                  )
-{
-    int CountNode = 0;
-    GEN_LIST<T> *pListHead = pHead;
-
-    // Travers the linked list till end  
-    do
-    { 
-        if(memcmp(&(pListHead-> Data), &data, sizeof(data)) == 0)
-        {
-            CountNode++;
+            temp = temp -> next;
         }
-        pListHead = pListHead-> pNext;
-    }while(pListHead != pTail->pNext);
-    
- return CountNode;
+
+        newn->next = temp->next;
+        temp->next->prev = newn;
+
+        temp->next = newn;
+        newn->prev = temp;
+
+        iCount++;
+    }
 }
 
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   InsertAtPosition
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :
-//
-//                     [IN] int pos.
-//                     Holds the position.
-//
-//                     [IN] T *pNodeData.
-//                     Holds the entry which is to be added.
-//
-// Description     :
-//                     this function adds node at specified position in singly Circular linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Singly_linkedList_Circular<T>::InsertAtPosition(
-                                            int pos,
-                                            T* pNodeData
-                                       )
+template <class T>
+void DoublyCL<T>::DeleteFirst()
 {
-    int i = 1;
-
-    GEN_LIST<T> *temp = NULL;
-    GEN_LIST<T> *pNewNode = NULL;
-
-    // If the linked list is empty
-    if (pHead == NULL)
-    {
-        return FALSE;
-    }
-
-    else if(pos == 1)
-    {
-        AddToGenListFirst(pNodeData);
-    }
-    else if(pos == (CountGenListNode()) + 1)
-    {
-        AddToGenListLast(pNodeData);
-    }
-    else if((pos > CountGenListNode()))
-    {
-        return FALSE;
-    }
-    else
-    {
-       temp = pHead;
-       pNewNode = (GEN_LIST<T> *)malloc(sizeof(GEN_LIST<T> ));
-       if(NULL == pNewNode)
-       {
-           return FALSE;
-       }
-
-       //
-       // Fill the node with Data
-       //
-       
-       memset(pNewNode, 0, sizeof(GEN_LIST<T>));
-       pNewNode-> pNext = NULL;
-       pNewNode-> Data = *pNodeData;
-
-       while(i < pos - 1)
-       {
-           temp = temp-> pNext;
-           ++i;
-       }
-       pNewNode-> pNext = temp-> pNext;
-       temp-> pNext = pNewNode;
-    }
-    
-    return TRUE;
-}               
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   DeleteFromGenListFirst
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :   NONE
-//
-//
-// Description     :
-//                     this function removes first node from singly Circular linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Singly_linkedList_Circular<T>::DeleteFromGenListFirst()
-{
-    GEN_LIST <T> *temp;
-    temp = pHead;
-
-    // if linked list is empty
-    if(pHead == NULL)
-    {
-        return FALSE;
-    }
-    else
-    {
-        pHead = temp-> pNext;
-        free(temp);
-    }
-    return TRUE;    
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   DeleteFromGenListLast
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :   NONE
-//
-// Description     :
-//                     this function removes last node from singly Circular linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL Singly_linkedList_Circular<T>::DeleteFromGenListLast()
-{
-    GEN_LIST<T> *temp1, *temp2;
-    temp1 = pHead;
-    temp2 = pTail;
-    
-    // If linked list is empty
-    if(pHead == NULL && pTail == NULL)
-    {
-        return FALSE;
-    } 
-    else
-    {
-        while(temp1-> pNext != temp2)
-        {
-            temp1 = temp1-> pNext;
-        }
-    
-        free(temp2);
-        pTail = temp1;
-        temp1-> pNext = pHead;
-    }
-
-    return TRUE;   
-}
-
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   DeleteAtPosition
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :
-//                     NONE
-//                     [IN] int pos.
-//                     Holds the position.
-//
-// Description     :
-//                     this function delete node from  specified position in singly Circular linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Singly_linkedList_Circular<T>::DeleteAtPosition(
-                                          int pos
-                                       )
-{
-    if(pos > (CountGenListNode()))
-    {
-        return FALSE;
-    }
-    else if(pos == 1)
-    {
-        DeleteFromGenListFirst();
-    }
-    else if(pos == (CountGenListNode()))
-    {
-        DeleteFromGenListLast();
-    }
-    else
-    {
-       int i = 0;
-       GEN_LIST<T> *temp = pHead, *t;
-
-       for(i = 0; i < pos -1; i++)
-       {
-           t = temp;
-           temp = temp-> pNext;
-       }
-       t-> pNext = temp-> pNext;
-       temp-> pNext = NULL;
-       free(temp);
-    }
-
-    return TRUE;   
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//
-// Function Name    :   Doubly_linkedList_Circular
-// Function Date    :   18/07/2024
-// Function Author  :   Pratik Jagtap
-// Parameters       :   NONE
-// Description      :   
-//                      This Is Constructor Of Class Doubly_linkedList_Circular.
-//
-// Returns          :   NONE
-//
-//
-////////////////////////////////////////////////////////////
-template <typename T>
-Doubly_linkedList_Circular<T>::Doubly_linkedList_Circular()
-{
-    pHead = NULL;
-    pTail = NULL;
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name    :   ~Doubly_linkedList_Circular
-// Function Date    :   18/07/2024
-// Function Author  :   Pratik Jagtap
-// Parameters       :   NONE
-// Description      :   
-//                      This Is Distructor Of Class Doubly_linkedList_Circular.
-//
-// Returns          :   NONE
-//
-//
-////////////////////////////////////////////////////////////
-template <typename T>
-Doubly_linkedList_Circular<T>::~Doubly_linkedList_Circular ()
-{
-    GEN_DLIST<T> *pTemp;
-    GEN_DLIST<T> *pNavigate;
-
-    if(NULL == pHead)
+    if(First == NULL && Last == NULL)   // Empty LL
     {
         return;
     }
-     
-        pNavigate = pHead;
-        while(pNavigate != pTail)
+    else if(First == Last)   // Single node
+    {
+        delete First;
+        First = NULL;
+        Last = NULL;
+    }
+    else    // More than one node
+    {
+        First = First -> next;
+        delete Last->next;
+        First -> prev = Last;
+        Last -> next = First;
+    }
+    iCount--;
+}
+
+template <class T>
+void DoublyCL<T>::DeleteLast()
+{
+    if(First == NULL && Last == NULL)   // Empty LL
+    {
+        return;
+    }
+    else if(First == Last)   // Single node
+    {
+        delete First;
+        First = NULL;
+        Last = NULL;
+    }
+    else    // More than one node
+    {
+        Last = Last -> prev;
+        delete First -> prev;
+
+        Last -> next = First;
+        First -> prev = Last;
+    }
+    iCount--;    
+}
+
+template <class T>
+void DoublyCL<T>::DeleteAtPos(int iPos)
+{
+    struct nodeDC<T> * temp = NULL;
+
+    int i = 0;
+
+    if(iPos < 1 || iPos > iCount)
+    {
+        cout<<"Invalid postion\n";
+        return;
+    }
+
+    if(iPos == 1)
+    {
+        DeleteFirst();
+    }
+    else if(iPos == iCount)
+    {
+        DeleteLast();
+    }
+    else
+    {
+        temp = First;
+
+        for(i = 1; i < iPos -1; i++)
         {
-            pTemp = pNavigate->pNext;
-            free(pNavigate);
-            pNavigate = pTemp;
+            temp = temp -> next;
         }
+
+        temp->next = temp->next->next;
+        delete temp->next->prev;
+        temp->next->prev = temp;
+
+        iCount--;
+    }    
 }
 
-////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 //
+// Code of Doubly Liear
 //
-// Function Name   :  AddToGenListFirst
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :  
-// 
-//                     [IN]T *pNodeData.
-//                      Holds the entry which is to be added.
-//
-// Description     :  
-//                   This Function Adds Node To Doubly Circular Linked List.
-//                   
-// Returns         :  
-//                     BOOLEAN
-//                    if the function succeds, the return value is TRUE.
-//                    if the function fails, the returns value is FALSE.
-//
-// 
-////////////////////////////////////////////////////////////
-template <typename T>
-BOOL
-Doubly_linkedList_Circular<T>::AddToGenListFirst(
-                                           T *pNodeData
-                                       )
+/////////////////////////////////////////////////////////////
+template<class T>
+struct nodeDL
 {
-    GEN_DLIST<T> *pNewNode = NULL;
+    T data;
+    struct nodeDL *next;
+    struct nodeDL *prev;
+};
 
-    if (NULL == pNodeData)
+template<class T>
+class DoublyLL
+{
+    private:
+        struct nodeDL<T>* First;
+        int iCount;
+
+    public:
+        DoublyLL();
+
+        void Display();
+        int Count();
+
+        void InsertFirst(T No);
+        void InsertLast(T No);        
+        void InsertAtPos(T No, int iPos);
+
+        void DeleteFirst();
+        void DeleteLast();
+        void DeleteAtPos(int iPos);
+};
+
+template<class T>
+DoublyLL<T>::DoublyLL()
+{
+    First=NULL;
+    iCount=0;
+}
+
+template<class T>
+void DoublyLL<T>::Display()
+{ struct nodeDL<T> *temp = First;
+    cout<<"\nNULL <=>";
+    while(temp != NULL)
     {
-        return FALSE;
+        cout<<"| "<<temp->data<<"|<=> ";
+        temp = temp -> next;
     }
-
-//
-// Allocate new node
-//
-
-pNewNode = (GEN_DLIST<T> *)malloc(sizeof(GEN_DLIST<T>));
-  if(NULL == pNewNode)
-  {
-      return FALSE;
-  }
-
-//
-// Fill the node with data.
-//
-
-memset(pNewNode, 0, sizeof(GEN_DLIST<T>));   
-pNewNode-> pNext = NULL;
-pNewNode-> Data = *pNodeData;
-pNewNode-> pPrev = NULL;
-
-//
-// Prepend
-//
-
- if (NULL == pHead)
- {
-     pHead = pNewNode;
-     pTail = pNewNode;
-     pTail-> pNext = pNewNode;
- }
- else
-  {
-     pNewNode-> pNext = pHead;
-     (pHead)-> pPrev = pNewNode;
-     pHead = pNewNode;
-     pTail-> pNext = pHead;
-  }
-
- return TRUE;
+    cout<<"NULL\n";
 }
 
-/////////////////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  AddToGenListLast
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :
-//
-//                   [IN] GEN_LIST<T>**ppListToBeAppended.
-//                   List which is to be appended to an existing list.
-//
-// Description     :
-//                    This function appends node in Doubly Circular linked list
-//
-// Returns         :
-//                    BOOLEAN
-//                    If the function succeds, the return value is TRUE.
-//                    If the function fails, the return value is FALSE.
-//
-//
-/////////////////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Doubly_linkedList_Circular<T>::AddToGenListLast(
-                                           T *pNodeData
-                                       )
+template<class T>
+int DoublyLL<T>::Count()
 {
-    GEN_DLIST<T> *pNewNode = NULL;
+    return iCount;
+}
 
-    GEN_DLIST<T> *pTempNode = NULL;
+template<class T>
+void DoublyLL<T>::InsertFirst(T No)
+{
+    struct nodeDL<T> *newn = NULL;
+
+    newn = new nodeDL<T>;    // malloc
+
+    newn->data = No;
+    newn->next = NULL;
+    newn->prev=NULL;
+
     
-    pTempNode = pHead;
-
-    if ( NULL == pNodeData)
+    if(First == NULL) // if(iCount == 0)
     {
-        return FALSE;
+        First = newn;
     }
-
-//
-// Allocate new node
-//
-
-pNewNode = (GEN_DLIST<T> *)malloc(sizeof(GEN_DLIST<T>));
-  if(NULL == pNewNode)
-  {
-      return FALSE;
-  }
-
-//
-// Fill the node with data.
-//
-
-memset(pNewNode, 0, sizeof(GEN_DLIST<T>));   
-pNewNode-> pNext = NULL;
-pNewNode-> Data = *pNodeData;
-pNewNode-> pPrev = NULL;
-//
-// Append
-//
-
- if (NULL == pHead)
- {
-     pHead = pNewNode;
-     pTail = pNewNode;
-     pTail->pNext = pNewNode;
- }
- else
-  {
-     pNewNode-> pPrev = pTail;
-     pTail->pNext = pNewNode;
-     pTail = pNewNode;
-     pTail->pNext = pHead;
-  }
-
- return TRUE;
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  FreeGenList
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :  NONE
-//
-// Description     :  This function frees Doubly circular linked list
-//                   
-//
-// Returns         :  
-//                     BOOLEAN
-//                    if the function succeds, the return value is TRUE.
-//                    if the function fails, the returns value is FALSE.
-//
-// 
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL
-Doubly_linkedList_Circular<T>::FreeGenList()
-{
-    GEN_DLIST<T> *pTemp;
-    GEN_DLIST<T> *pNavigate;
-
-    if (NULL == pHead)
+    else
     {
-        return FALSE;
+        newn->next = First;
+        First->prev = newn;
+        First=newn;
+
     }
-
- pNavigate = pHead;
- while (pNavigate != pTail)
- {
-     pTemp = pNavigate->pNext;
-     free(pNavigate);
-     pNavigate = pTemp;
- }
-
-  return TRUE;
+    iCount++;
 }
 
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   DisplayGenList
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :
-//                     [IN] GEN_DLIST<T> *pListHead
-//                     Holds head pointer of list
-//
-// Description     :
-//                      This function display Doubly_linkedList_Circular
-//
-// Returns         :
-//                       void
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-void
-Doubly_linkedList_Circular<T>::DisplayGenList()
+template<class T>
+void DoublyLL<T>::InsertLast(T No)
 {
-    GEN_DLIST<T> *pTempNode;
-    pTempNode = pHead;
+     struct nodeDL<T>* newn = NULL;
+    struct nodeDL<T>* temp = First;
 
-    do
+    newn = new nodeDL<T>;    // malloc
+
+    newn->data = No;
+    newn->next = NULL;
+    newn->prev = NULL;
+
+    if(First == NULL) // if(iCount == 0)
     {
-        cout<<pTempNode-> Data<<"->";
-        pTempNode = pTempNode-> pNext;
-    }while(pTempNode != pTail->pNext);
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  CountGenListNode
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :
-//                    [IN] GEN_DLIST<T>*pListHead
-//                    holds head pointer of the list.
-//
-// Description     :
-//                    This function counts nodes in Doubly Circular linked list
-//
-// Returns         :
-//                    int
-//                    number of node in generic list
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-int Doubly_linkedList_Circular<T>::CountGenListNode ()
-{
-    // variable for maintaning numbers of nodes
-    int CountNode = 0;
-    GEN_DLIST<T> *pTempNode;
-    pTempNode = pHead;
-
-    do
+        First = newn;
+    }
+    else
     {
-        CountNode++;
-        pTempNode = pTempNode-> pNext;
-    } while(pTempNode != pTail-> pNext);
-    return CountNode;
-}
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   SearchFirstOccurance
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :
-//
-//                     [IN] GEN_DLIST<T> data.
-//                     holds head data to be searched.
-//
-// Description     :
-//                     this function search perticular data in Doubly Circular linked list.
-//                     and returns the position at which data is found.
-//
-// Returns         :
-//                     int
-//                     position at which data is found in generic list.
-//
-//
-////////////////////////////////////////////////////////////
-template <typename T>
-int Doubly_linkedList_Circular<T>::SearchFirstOccurance(
-                                               T data
-                                           ) //Data to be searched
-{
-    int CountNode = 0;
-    GEN_DLIST<T> *pListHead = pHead;
-
-    // Traverse the linked list till end
-    do
-    {
-        CountNode++;
-        if(memcmp(&(pListHead-> Data), &data, sizeof(data)) == 0)
+        while(temp->next != NULL)
         {
-            // Break the loop as we get the first occurance
-            return CountNode;
-        } 
-        pListHead = pListHead-> pNext;
-    }while(pListHead != pTail->pNext);
-
- return -1;
-}          
-
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  SearchAllOccurance
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :
-//
-//                    [IN] GEN_DLIST<T> data.
-//                    Holds head data to be searched.
-//
-// Description     :
-//                    This function search perticular data in Doubly Circular linked list.
-//                    and return number of occurance of that data.
-//
-// Returns         :
-//                    int
-//                    number of times data is found in generic list.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-int Doubly_linkedList_Circular<T>::SearchAllOccurance(
-                                                       T data
-                                                  )
-{
-    int CountNode = 0;
-    GEN_DLIST<T> *pListHead = pHead;
-
-    // Travers the linked list till end  
-    do
-    { 
-        if(memcmp(&(pListHead-> Data), &data, sizeof(data)) == 0)
-        {
-            CountNode++;
+            temp = temp -> next;
         }
-        pListHead = pListHead-> pNext;
-    }while(pListHead != pTail->pNext);
+        temp -> next = newn;
+        newn->prev=temp;
+    }
+    iCount++;
+}
+
+template<class T>
+void DoublyLL<T>::InsertAtPos(T No, int iPos)
+{
+    struct nodeDL<T>* newn = NULL;
+    int i = 0;
+    struct nodeDL<T>* temp=NULL;
+
+    if((iPos < 1) || (iPos > iCount+1))
+    {
+        cout<<"Invalid position\n";
+        return;
+    }
+
+    if(iPos == 1)
+    {
+        InsertFirst(No);
+    }
+    else if(iPos == iCount+1)
+    {
+        InsertLast(No);
+    }
+    else 
+    {
+        temp = First;
+        
+        newn = new nodeDL<T>;
+        newn->data = No;
+        newn->next = NULL;
+        newn->prev=NULL;
+
+        for(i = 1; i < iPos-1; i++)
+        {
+            temp = temp -> next;
+        }
+
+        newn->next = temp->next;
+        temp -> next->prev = newn;
+        temp->next=newn;
+        newn->prev=temp;
+        iCount++;
+    }
+}
+
+template<class T>
+void DoublyLL<T>::DeleteFirst()
+{
+    struct nodeDL<T>* temp = First;
+
+    if(First == NULL)
+    {
+        cout<<"LL is empty\n";
+        return;
+    }
+    else if(First -> next == NULL)
+    {
+        delete First;
+        First = NULL;
+        
+    }
+    else
+    {
+        First = First -> next;
+        First->prev=NULL;
+        delete temp;
+        
+    }
+    iCount--;
+}
+
+template<class T>
+void DoublyLL<T>::DeleteLast()
+{
     
- return CountNode;
+    struct nodeDL<T>* temp = First;
+
+    if(First == NULL)
+    {
+        cout<<"LL is empty\n";
+        return;
+    }
+    else if(First -> next == NULL)
+    {
+        delete First;
+        First = NULL;
+    }
+    else
+    {
+        while(temp->next->next != NULL)
+        {
+            temp = temp ->next;
+        }
+        delete temp->next;
+        temp->next = NULL;
+    }
+    iCount--;
 }
 
+template<class T>
+void DoublyLL<T>::DeleteAtPos(int iPos)
+{ int i = 0;
+    struct nodeDL<T>* temp1;
+    struct nodeDL<T>* temp2;
 
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   InsertAtPosition
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :
-//
-//                     [IN] int pos.
-//                     Holds the position.
-//
-//                     [IN] T *pNodeData.
-//                     Holds the entry which is to be added.
-//
-// Description     :
-//                     this function adds node at specified position in singlDoubly Circular linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL Doubly_linkedList_Circular<T>::InsertAtPosition(
-                                            int pos, // position at which node is inserted
-                                            T* pNodeData // data members of thee node
-                                       )
-{
-    int i = 1;
-
-    GEN_DLIST<T> *temp = NULL;
-    GEN_DLIST<T> *pNewNode = NULL;
-
-    // If the linked list is empty
-    if (pHead == NULL)
+    if((iPos < 1) || (iPos > iCount))
     {
-        return FALSE;
+        cout<<"Invalid position\n";
+        return;
     }
 
-    else if(pos == 1)
+    if(iPos == 1)
     {
-        AddToGenListFirst(pNodeData);
+        DeleteFirst();
     }
-    else if(pos == (CountGenListNode()) + 1)
+    else if(iPos == iCount)
     {
-        AddToGenListLast(pNodeData);
+        DeleteLast();
     }
-    else if((pos > CountGenListNode()))
+    else 
     {
-        return FALSE;
-    }
-    else
-    {
-       temp = pHead;
-       pNewNode = (GEN_DLIST<T> *)malloc(sizeof(GEN_DLIST<T> ));
-       if(NULL == pNewNode)
-       {
-           return FALSE;
-       }
+        temp1 = First;
 
-       //
-       // Fill the node with Data
-       //
+        for(i = 1; i < iPos-1; i++)
+        {
+            temp1 = temp1 -> next;
+        }
 
-       memset(pNewNode, 0, sizeof(GEN_DLIST<T>));
-       pNewNode-> pNext = NULL;
-       pNewNode-> Data = *pNodeData;
-       pNewNode-> pPrev = NULL;
+        temp2 = temp1->next;
 
-       while(i < pos - 1)
-       {
-           temp = temp-> pNext;
-           ++i;
-       }
-       pNewNode-> pNext = temp-> pNext;
-       temp-> pNext-> pPrev = pNewNode;
-       temp-> pNext = pNewNode;
-       pNewNode-> pPrev = temp;
-    }
-    
-    return TRUE;
-}               
+        temp1->next = temp2->next;
+        if (temp2->next != NULL)
+        {
+            temp2->next->prev = temp1;
+        }
+        delete temp2;
+      iCount--;
+    }    
 
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   DeleteFromGenListFirst
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :   NONE
-//
-//
-// Description     :
-//                     this function removes first node from Doubly Circular linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL Doubly_linkedList_Circular<T>::DeleteFromGenListFirst()
-{
-    GEN_DLIST <T> *temp = NULL;
-    temp = pHead;
-
-    // if linked list is empty
-    if(pHead == NULL)
-    {
-        return FALSE;
-    }
-    else
-    {
-        pHead = temp-> pNext;
-        pTail->pNext = pHead;
-        pHead-> pPrev = pTail;
-        free(temp);
-    }
-    return TRUE;    
 }
 
-////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 //
+// Code of Singly Circular
 //
-// Function Name   :   DeleteFromGenListLast
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :   NONE
-//
-// Description     :
-//                     this function removes last node from Doubly Circular linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
-
-template <typename T>
-BOOL Doubly_linkedList_Circular<T>::DeleteFromGenListLast()
+/////////////////////////////////////////////////////////////
+template<class T>
+struct nodeSC
 {
-    GEN_DLIST<T> *temp;
+    T data;
+    struct nodeSC *next;
+};
+template<class T>
+class SinglyCL
+{
+    private:
+        struct nodeSC<T>* First;
+        struct nodeSC<T>* Last;
+        int iCount;
 
-    // If linked list is empty
-    if(pHead == NULL)
-    {
-        return FALSE;
-    } 
-    else
-    {
-        temp = pTail;
-        pTail = pTail-> pPrev;
-        pTail-> pNext = pHead;
-        free(temp);
-    }
-    return TRUE;   
+    public:
+        SinglyCL();
+
+        void Display();
+        int Count();
+
+        void InsertFirst(T No);
+        void InsertLast(T No);
+        void InsertAtPos(T No, int iPos);
+
+        void DeleteFirst();
+        void DeleteLast();
+        void DeleteAtPos(int iPos);
+};
+
+template<class T>
+SinglyCL<T>::SinglyCL()
+{
+    First = NULL;
+    Last = NULL;
+    iCount = 0;
 }
-////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :   DeleteAtPosition
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Parameters      :
-//                    
-//                     [IN] int pos.
-//                     Holds the position.
-//
-// Description     :
-//                     this function delete node from  specified position in Doubly Circular linked list
-//                     
-// Returns         :
-//                     BOOLEAN
-//                     If the function succeds, the return value is TRUE.
-//                     If the function fails, the return value is FALSE.
-//
-//
-////////////////////////////////////////////////////////////
 
-template <typename T>
-BOOL
-Doubly_linkedList_Circular<T>::DeleteAtPosition(
-                                          int pos
-                                       )
-{
-    if(pos > (CountGenListNode()))
-    {
-        return FALSE;
-    }
-    else if(pos == 1)
-    {
-        DeleteFromGenListFirst();
-    }
-    else if(pos == (CountGenListNode()))
-    {
-        DeleteFromGenListLast();
-    }
-    else
-    {
-       int i = 0;
-       GEN_DLIST<T> *temp = pHead, *t;
-
-       for(i = 0; i < pos -1; i++)
-       {
-           t = temp;
-           temp = temp-> pNext;
-       }
-       t-> pNext = temp-> pNext;
-       temp-> pNext->pPrev = t;
+template<class T>
+void SinglyCL<T>::Display()
+{    struct nodeSC<T>* temp = First; 
+    if ((First == NULL) && (Last==NULL))
+        {
+            cout << "Linked list is empty\n";
+            return;
+        }
+        
        
-       free(temp);
-    }
-    return TRUE;   
+        do
+        {
+            cout <<"|"<<temp->data<<"|->";
+            temp = temp->next;
+        } while (temp != First);
+        cout <<"\n";
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//
-// Function Name   :  DisplayGenListReverse
-// Function Date   :  18/07/2024
-// Function Author :  Pratik Jagtap
-// Parameters      :
-//                    NONE 
-// Description     :
-//                    Function which display the list in reverse manner.
-// Return          :
-//                    void 
-//
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-template <typename T>
-BOOL
-Doubly_linkedList_Circular<T>::DisplayGenListReverse()
+template<class T>
+int SinglyCL<T>::Count()
 {
-    GEN_DLIST<T> *temp = pTail;
+    return iCount;
+}
 
-    if(pHead == NULL)
+template<class T>
+void SinglyCL<T>::InsertFirst(T No)
+{      struct nodeSC<T>* newn = NULL;
+        newn=new nodeSC<T>;
+
+        newn->data = No;
+        newn->next = NULL;
+
+        if ((First == NULL)&& (Last==NULL))
+        {
+            First = newn;
+            Last = newn;
+            newn->next = First;
+        }
+        else
+        {
+            newn->next = First;
+            First = newn;
+            Last->next = First;
+        }
+        iCount++;
+}
+
+template<class T>
+void SinglyCL<T>::InsertLast(T No)
+{
+    struct nodeSC<T>* newn = new nodeSC<T>;
+        newn->data = No;
+        newn->next = NULL;
+
+        if ((First == NULL) && (Last==NULL))
+        {
+            First = newn;
+            Last = newn;
+            newn->next = First;
+        }
+        else
+        {
+            Last->next = newn;
+             Last = newn;
+            Last->next = First;
+        }
+        iCount++;
+}
+
+template<class T>
+void SinglyCL<T>::InsertAtPos(T No, int iPos)
+{   struct nodeSC<T>* temp = NULL;
+    struct nodeSC<T>* newn = NULL;
+    int i = 0;
+    if (iPos < 1 || iPos > iCount + 1)
     {
-        return TRUE;
+        cout << "Invalid position\n";
+        return;
+    }
+
+    if (iPos==1)
+    { 
+        InsertFirst(No);
+    }
+    else if (iPos == iCount+1)
+    {
+        InsertLast(No);
     }
     else
     {
-       do
-       {
-           printf("|%d|<=>",temp-> Data);
-           temp = temp-> pPrev;
-       } while(temp != pHead-> pPrev);
-    }   
-     return FALSE;
+        newn=new nodeSC<T>;
+        newn->data=No;
+        newn->next=NULL;
+        temp = First;
+        for (int i = 1; i < iPos - 1; ++i)
+        {
+            temp = temp->next;
+        }
+
+        newn->next = temp->next;
+        temp->next = newn;
+    }
+
+    iCount++;
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+template<class T>
+void SinglyCL<T>::DeleteFirst()
+{
+    if (First == NULL)
+    {
+        cout << "Linked list is empty.\n";
+        return;
+    }
+
+    if (First == Last)
+    {
+        // Only one node in the list
+        delete First;
+        First = NULL;
+        Last = NULL;
+    }
+    else
+    {
+        struct nodeSC<T>* temp = First;
+        First = First->next;
+        Last->next = First; // Update circular link
+        delete temp;
+    }
+
+    iCount--;
+}
+
+    
+
+template<class T>
+void SinglyCL<T>::DeleteLast()
+{   if (First == NULL)
+    {
+        cout << "Linked list is empty\n";
+    }
+    else if (First == Last)
+    {
+        // Only one node in the list
+        delete First;
+        First = NULL;
+        Last = NULL;
+    }
+    else
+    {
+        struct nodeSC<T>* temp = First;
+        while (temp->next != Last)
+        {
+            temp = temp->next;
+        }
+
+        delete Last;
+        Last = temp;
+        Last->next = First; // Update circular link
+    }
+
+    iCount--;
+}
 
 
-//////////////////////////////////////////////////////////////
+template<class T>
+void SinglyCL<T>::DeleteAtPos(int iPos)
+{    struct nodeSC<T>* temp1=NULL;
+     int i=0;
+    if (iPos < 1 || iPos > iCount)
+    {
+        cout << "Invalid position\n";
+        return;
+    }
+
+    if (iPos == 1)
+    {
+        DeleteFirst();
+    }
+    else if (iPos == iCount)
+    {
+        DeleteLast();
+    }
+    else
+    {
+         temp1 = First;
+        for (int i = 1; i < iPos - 1; ++i)
+        {
+            temp1 = temp1->next;
+        }
+        
+        struct nodeSC<T>* target = temp1->next;
+        temp1->next = target->next;
+        delete target;
+        iCount--;
+    }
+   
+}
+
+
+/////////////////////////////////////////////////////////////
 //
+// Code of Stack
 //
-// Function Name   :   Entry Point Function
-// Function Date   :   18/07/2024
-// Function Author :   Pratik Jagtap
-// Brif Description      :
+/////////////////////////////////////////////////////////////
+template<class T>
+struct nodeS
+{
+    T data;
+    struct nodeS *next;
+};
+
+template<class T>
+class Stack
+{
+    private:
+        struct nodeS<T>* First;
+        int iCount;
+
+    public:
+        Stack();
+        void Display();
+        int Count();
+        void Push(T No);  // InsertFirst()
+        int Pop();   // DeleteFirst()
+};
+
+template<class T>
+Stack <T>:: Stack()
+{
+    First = NULL;
+    iCount = 0;
+}
+
+template<class T>
+void Stack<T> ::Display()
+{
+    cout<<"Elements of stack are : \n";
+    struct nodeS<T>* temp = First;
+
+    while(temp != NULL)
+    {
+        cout<<temp->data<<"\n";
+        temp = temp -> next;
+    }
+    cout<<"\n";
+}
+
+template<class T>
+int Stack<T> ::Count()
+{
+    return iCount;
+}
+
+template<class T>
+void Stack<T> ::Push(T No)
+{
+    struct nodeS<T>* newn = NULL;
+
+    newn = new nodeS<T>;
+
+    newn->data = No;
+    newn->next = NULL;
+
+    if(First == NULL)
+    {
+        First = newn;
+    }
+    else
+    {
+        newn->next = First;
+        First = newn;
+    }
+    iCount++;
+}
+
+template<class T>
+int Stack<T> ::Pop()
+{
+    int iValue = 0;
+    struct nodeS<T>* temp = NULL;
+
+    if(First == NULL)
+    {
+        cout<<"Unable to pop the element as stack is empty\n";
+        return -1;
+    }
+    else
+    {
+        temp = First;
+
+        iValue = First -> data;
+        First = First -> next;
+        delete temp;
+        
+        iCount--;
+    }
+
+    return iValue;
+}
+
+
+/////////////////////////////////////////////////////////////
 //
+// Code of Queue
 //
-//////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+template<class T>
+struct nodeQ
+{
+    T data;
+    struct nodeQ *next;
+};
+
+template<class T>
+class Queue
+{
+    private:
+        struct nodeQ<T>* First;
+        int iCount;
+
+    public:
+        Queue();
+        void Display();
+        int Count();
+        void EnQueue(T No);  // InsertLast()
+        T DeQueue();   // DeleteFirst()
+};
+
+template<class T>
+Queue<T> :: Queue()
+{
+    First = NULL;
+    iCount = 0;
+}
+
+template<class T>
+void Queue<T> ::Display()
+{
+    cout<<"Elements of Queue are : \n";
+    struct nodeQ<T>* temp = First;
+
+    while(temp != NULL)
+    {
+        cout<<temp->data<<"\t";
+        temp = temp -> next;
+    }
+    cout<<"\n";
+}
+
+template<class T>
+int Queue <T>::Count()
+{
+    return iCount;
+}
+
+template<class T>
+void Queue<T> ::EnQueue(T No)
+{
+    struct nodeQ<T>* newn = NULL;
+    struct nodeQ<T>* temp = NULL;
+
+    newn = new nodeQ<T>;
+
+    newn->data = No;
+    newn->next = NULL;
+
+    if(First == NULL)
+    {
+        First = newn;
+    }
+    else
+    {
+        temp = First;
+
+        while(temp ->next != NULL)
+        {
+            temp = temp -> next;
+        }
+
+        temp->next = newn;
+    }
+    iCount++;
+}
+
+template<class T>
+T Queue<T> ::DeQueue()
+{
+    int iValue = 0;
+    struct nodeQ<T>* temp = NULL;
+
+    if(First == NULL)
+    {
+        cout<<"Unable to remove the element as queue is empty\n";
+        return -1;
+    }
+    else
+    {
+        temp = First;
+
+        iValue = First -> data;
+        First = First -> next;
+        delete temp;
+        
+        iCount--;
+    }
+
+    return iValue;
+}
 
 int main()
 {
-    BOOL bRet;
+    // LL of integer
+    cout<<"-------------- Singly LL of Integers --------------\n";
 
-    cout<<endl<<"--------------------------------------"<<endl;
-    cout<<"\t\tLinear Singly Linked List";
-    cout<<endl<<"---------------------------------------"<<endl;
+    SinglyLL<int> *iobj = new SinglyLL<int>();
+    int iRet = 0;
 
-    Singly_linkedList <int>sobj;
+    iobj->InsertFirst(51);
+    iobj->InsertFirst(21);
+    iobj->InsertFirst(11);
+
+    iobj->Display();
+    iRet = iobj->Count();
+    cout<<"Number of elemensts are : "<<iRet<<endl;
+
+    iobj->InsertLast(101);
+    iobj->InsertLast(111);
+    iobj->InsertLast(121);
     
-    int no = 10;
-    sobj.AddToGenListFirst(&no);
-    no++;
-    sobj.AddToGenListFirst(&no);
-    no++;
-    sobj.AddToGenListFirst(&no);
-    no++;
-    sobj.AddToGenListFirst(&no);
+    iobj->Display();
+    iRet = iobj->Count();
+    cout<<"Number of elemensts are : "<<iRet<<endl;
+
+    iobj->InsertAtPos(105,5);
+
+    iobj->Display();
+    iRet = iobj->Count();
+    cout<<"Number of elemensts are : "<<iRet<<endl;
+
+    iobj->DeleteAtPos(5);
+    iobj->Display();
+    iRet = iobj->Count();
+    cout<<"Number of elemensts are : "<<iRet<<endl;
+
+    // DC of float
+     cout<<"-------------- DoublyCircular LL of Float --------------\n";
+     
+     DoublyCL<float> *fobj = new DoublyCL<float>();
+    int fRet = 0;
+
+    fobj->InsertFirst(51.2f);
+    fobj->InsertFirst(21.2f);
+    fobj->InsertFirst(11.2f);
+
+    fobj->Display();
+    fRet = fobj->Count();
+    cout<<"Number of elemensts are : "<<fRet<<endl;
+
+    fobj->InsertLast(101.2f);
+    fobj->InsertLast(111.2f);
+    fobj->InsertLast(121.2f);
     
-    no = 25;
-    sobj.AddToGenListLast(&no);
-    sobj.DisplayGenList();
+    fobj->Display();
+    fRet = fobj->Count();
+    cout<<"Number of elemensts are : "<<fRet<<endl;
 
-    no = 11;
-    cout<<endl<<"Elements 11 is found at position"<<sobj.SearchFirstOccurance(no)<<endl;
+    fobj->InsertAtPos(105.2f,5);
 
-    sobj.InsertAtPosition(4,&no);
-    sobj.DisplayGenList();
-    printf("\n");
+    fobj->Display();
+    fRet = fobj->Count();
+    cout<<"Number of elemensts are : "<<fRet<<endl;
 
-    sobj.DeleteFromGenListFirst();
-    sobj.DisplayGenList();
-    printf("\n");
-
-    sobj.DeleteFromGenListLast();
-    sobj.DisplayGenList();
-    printf("\n"); 
-
-    sobj.DeleteAtPosition(2);
-    sobj.DisplayGenList();
-    printf("\n");
-
-    sobj.ReverseList();
-    sobj.DisplayGenList();
-    printf("\n");
-
+    fobj->DeleteAtPos(5);
+    fobj->Display();
+    fRet = fobj->Count();
+    cout<<"Number of elemensts are : "<<fRet<<endl;
     
-    cout<<endl<<"--------------------------------------"<<endl;
-    cout<<"\t\tLinear Doubly Linked List";
-    cout<<endl<<"---------------------------------------"<<endl;
-    Doubly_linkedList <int>dobj;
+    // DL of character
+     cout<<"-------------- DoublyLinear LL of Char --------------\n";
+
+     DoublyLL<char> *cobj = new DoublyLL<char>();
+    int cRet = 0;
+
+    cobj->InsertFirst('A');
+    cobj->InsertFirst('B');
+    cobj->InsertFirst('C');
+
+    cobj->Display();
+    cRet = cobj->Count();
+    cout<<"Number of elemensts are : "<<cRet<<endl;
+
+    cobj->InsertLast('D');
+    cobj->InsertLast('E');
+    cobj->InsertLast('F');
     
-    bRet = dobj.AddToGenListFirst(&no);
-    no++;
+    cobj->Display();
+    cRet = cobj->Count();
+    cout<<"Number of elemensts are : "<<cRet<<endl;
 
-    bRet = dobj.AddToGenListFirst(&no);
-    no++;
+    cobj->InsertAtPos('G',5);
 
-    bRet = dobj.AddToGenListFirst(&no);
-    no++;
+    cobj->Display();
+    cRet = cobj->Count();
+    cout<<"Number of elemensts are : "<<cRet<<endl;
 
-    dobj.DisplayGenList();
-    printf("\n");
+    cobj->DeleteAtPos(5);
+    cobj->Display();
+    cRet = cobj->Count();
+    cout<<"Number of elemensts are : "<<cRet<<endl;
 
-    no = 20;
-    bRet = dobj.AddToGenListLast(&no);
+    // SC of double
+     cout<<"-------------- SinglyCircular LL of Double --------------\n";
+
+     SinglyCL<double>*dobj = new SinglyCL<double>();
+    int dRet = 0;
+
+    dobj->InsertFirst(51.111);
+    dobj->InsertFirst(21.111);
+    dobj->InsertFirst(11.111);
+
+    dobj->Display();
+    dRet = dobj->Count();
+    cout<<"Number of elemensts are : "<<dRet<<endl;
+
+    dobj->InsertLast(101.111);
+    dobj->InsertLast(111.111);
+    dobj->InsertLast(121.111);
     
-    no = 30;
-    bRet = dobj.AddToGenListLast(&no);
+    dobj->Display();
+    dRet = dobj->Count();
+    cout<<"Number of elemensts are : "<<dRet<<endl;
 
-    dobj.DisplayGenList();
-    printf("\n");
+    dobj->InsertAtPos(105.555,5);
 
-    no = 40;
-    bRet = dobj.AddToGenListLast(&no);
+    dobj->Display();
+    dRet = dobj->Count();
+    cout<<"Number of elemensts are : "<<dRet<<endl;
+
+    dobj->DeleteAtPos(5);
+    dobj->Display();
+    dRet = dobj->Count();
+    cout<<"Number of elemensts are : "<<dRet<<endl;
+
+     // Stack
+     cout<<"--------------  Stack of int --------------\n";
+    Stack<int>*siobj = new Stack<int>();
+    int siRet = 0;
+
+    siobj->Push(10);
+    siobj->Push(20);
+    siobj->Push(30);
+    siobj->Push(40);
+
+    siobj->Display();
+
+    siRet = siobj->Count();
+
+    cout<<"Number of elements in the stack are : "<<siRet<<"\n";
     
-    no = 50;
-    bRet = dobj.AddToGenListLast(&no);
+    siRet = siobj->Pop();
 
-    dobj.DisplayGenList();
-    printf("\n");
+    cout<<"Poped element is : "<<siRet<<"\n";
 
-    no = 20;
-    cout<<endl<<"Elements 20 is found at position"<<dobj.SearchFirstOccurance(no)<<endl;
+    siRet = siobj->Pop();
+
+    cout<<"Poped element is : "<<siRet<<"\n";
     
-    no = 45;
-    dobj.DisplayGenList();
-    printf("\n");
-    
-    dobj.InsertAtPosition(4,&no);
-    dobj.DisplayGenList();
-    printf("\n");
+    siobj->Display();
 
-    printf("\n");
-    dobj.DeleteAtPosition(4);
-    dobj.DisplayGenList();
-    printf("\n");
+    siRet = siobj->Count();
 
-    dobj.DisplayGenListReverse();
+    cout<<"Number of elements in the stack are : "<<siRet<<"\n";
 
-     cout<<endl<<"--------------------------------------"<<endl;
-    cout<<"\t\tCircular Singly Linked List";
-    cout<<endl<<"---------------------------------------"<<endl;
-    
-    Singly_linkedList_Circular <int>scobj;
-    
-    no = 25;
-    scobj.AddToGenListLast(&no);
-    scobj.DisplayGenList();
+    siobj->Push(50);
 
-    no = 10;
-    scobj.AddToGenListFirst(&no);
-    no++;
-    cout<<endl;
-    scobj.DisplayGenList();
+    siobj->Display();
 
-    scobj.AddToGenListFirst(&no);
-    no++;
-    cout<<endl;
-    scobj.DisplayGenList();
+    siRet = siobj->Count();
 
-    scobj.AddToGenListFirst(&no);
-    no++;
-    scobj.AddToGenListFirst(&no);
-    no++;
-    cout<<endl;
-    scobj.DisplayGenList();
-    cout<<endl;
-    
-    no = 25;
-    scobj.AddToGenListLast(&no);
-    scobj.DisplayGenList();
-    
-    no = 11;
-    cout<<endl<<"Elements 11 is found at position"<<scobj.SearchFirstOccurance(no)<<endl;
-
-    scobj.InsertAtPosition(4,&no);
-    scobj.DisplayGenList();
-    printf("\n");
+    cout<<"Number of elements in the stack are : "<<siRet<<"\n";
     
 
-    no = 25;
-    cout<<endl<<"Elements 25 is fount at position"<<scobj.SearchAllOccurance(no)<<endl;
-
-    scobj.DeleteFromGenListFirst();
-    scobj.DisplayGenList();
-    printf("\n");
-
-    scobj.DeleteFromGenListLast();
-    scobj.DisplayGenList();
-    printf("\n");
-
-    scobj.DeleteAtPosition(2);
-    scobj.DisplayGenList();
-    printf("\n");
-
-    cout<<endl<<"----------------------------------------------"<<endl;
-    cout<<"\t\tCircular Doubly Linked List";
-    cout<<endl<<"----------------------------------------------"<<endl;
+     // Queue
+     cout<<"--------------  Queue of float --------------\n";
+    Queue<float>*qfobj = new Queue<float>();
+    int qfRet = 0;
     
-    Doubly_linkedList_Circular <int>dcobj;
-
-    no = 95;
-    dcobj.AddToGenListLast(&no);
-    dcobj.DisplayGenList();
-
-    no = 25;
-    dcobj.AddToGenListFirst(&no);
-    dcobj.DisplayGenList();
-
-    no = 10;
-    dcobj.AddToGenListFirst(&no);
-    no++;
-    cout<<endl;
-    dcobj.DisplayGenList();
     
-    dcobj.AddToGenListFirst(&no);
-    no++;
-    cout<<endl;
-    dcobj.DisplayGenList();
+    qfobj->EnQueue(10);
+    qfobj->EnQueue(20);
+    qfobj->EnQueue(30);
+    qfobj->EnQueue(40);
 
-    dcobj.AddToGenListFirst(&no);
-    no++;
-    dcobj.AddToGenListFirst(&no);
-    no++;
-    cout<<endl;
-    dcobj.DisplayGenList();
-    cout<<endl;
+    qfobj->Display();
+
+    qfRet = qfobj->Count();
+
+    cout<<"Number of elements in the Queue are : "<<qfRet<<"\n";
     
-    no = 35;
-    dcobj.AddToGenListLast(&no);
-    dcobj.DisplayGenList();
+    qfRet = qfobj->DeQueue();
+
+    cout<<"Removed element is : "<<qfRet<<"\n";
+
+    qfRet = qfobj->DeQueue();
+
+    cout<<"Removed element is : "<<qfRet<<"\n";
     
-    no = 11;
-    cout<<endl<<"Elements 11 is found at position"<<dcobj.SearchFirstOccurance(no)<<endl;
-    cout<<endl<<"Elements 11 is found at position"<<dcobj.SearchAllOccurance(no)<<endl;
+    qfobj->Display();
 
-    dcobj.InsertAtPosition(4,&no);
-    dcobj.DisplayGenList();
-    printf("\n");
+    qfRet = qfobj->Count();
 
-    dcobj.DeleteFromGenListFirst();
-    dcobj.DisplayGenList();
-    printf("\n");
+    cout<<"Number of elements in the Queue are : "<<qfRet<<"\n";
 
-    dcobj.DeleteFromGenListLast();
-    dcobj.DisplayGenList();
-    printf("\n");
-    
-    dcobj.DeleteAtPosition(2);
-    dcobj.DisplayGenList();
-    printf("\n");
+    qfobj->EnQueue(50);
 
-    dcobj.DisplayGenListReverse();
+    qfobj->Display();
+
+    qfRet = qfobj->Count();
+
+    cout<<"Number of elements in the Queue are : "<<qfRet<<"\n";
     
     return 0;
+
+    
+
+    
 }
